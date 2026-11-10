@@ -19,6 +19,29 @@ Date: 2026-11-10 · Tested by Claude Code in the Claude desktop app's built-in b
 | 11 | Consistent layout | ✅ All pages use `BaseLayout.astro` (same header, footer, colours, font) |
 | 12 | No `node_modules/`, `dist/`, `.env` in repo | ⏳ Checked with `git status` before the first commit |
 
+## Re-test after "dark & gold" redesign (2026-11-10)
+
+- `npm run build`: ✅ 5 pages, no errors
+- 375 px: ✅ no horizontal scrolling on all 5 pages
+- Contrast (WCAG AA needs ≥ 4.5:1): ✅ cream text on card 14.9:1, gold on card 8.5:1,
+  dark text on gold 8.9:1, rose "wrong" text 6.0:1, footer text 10.1:1
+- Quiz feedback styles (correct = gold, wrong = rose + strikethrough + "✗") checked visually
+
+## Re-test after new photos and drag & drop question (2026-11-10)
+
+- `npm run build`: ✅ 5 pages, no errors; 13 new photos (watermark strip cropped) optimized to WebP
+- AC 4/6: ✅ 4 questions; all right → "4 of 4 correct" + throne photo; all wrong → "0 of 4 correct" + grumpy photo
+- AC 13, drag & drop:
+  - Mouse drag (real pointer input) into slots: ✅ photos land in the slot under the pointer
+  - Keyboard: Enter on photo → "Photo selected", Enter/Space on activity → placed, focus stays on the photo: ✅
+  - Tap path (click photo, click activity): ✅; clicking an activity first → "Choose a photo first."
+  - Dropping on an occupied slot sends the old photo back to the album: ✅
+  - "Check" disabled until all 3 slots are filled; afterwards ✓/✗ per slot, everything locked: ✅
+  - Bug found and fixed: after a mouse drag the next keyboard press on the same photo was ignored
+- AC 7: ✅ no horizontal scrolling at 320 px and 375 px (quiz grid needed `minmax(0, 1fr)`)
+- AC 10: ✅ all photos have alt text; drag & drop photos are described by their button label
+- Not tested: real touch devices (only mouse/keyboard input possible in the test browser)
+
 ## Notes
 
 - Photos are converted to WebP by Astro at build time (e.g. 498 kB → 160 kB).
