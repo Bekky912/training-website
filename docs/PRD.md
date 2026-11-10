@@ -78,7 +78,7 @@ Auf jeder Seite: dieselbe Kopfzeile mit Navigation (Home, Lessons 1–3, Quiz) u
 - Fortschritt speichern (z. B. „Lektion erledigt“), auch nicht im Browser-Speicher
 - Dark Mode, Animationen (außer dezenten Hover-Effekten), Bestenliste, Timer
 - Mehrere Quizze, zufällige Fragenreihenfolge, Teilen-Buttons
-- Deployment (z. B. Vercel). Das übernimmt später jemand anderes.
+- Deployment über Vercel (übernimmt ggf. später jemand anderes). Veröffentlicht wird stattdessen per GitHub Pages unter https://bekky912.github.io/training-website/ (Entscheidung vom 2026-11-10).
 
 ## 8. Akzeptanzkriterien (messbar)
 

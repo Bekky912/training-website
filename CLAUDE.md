@@ -13,7 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - The user is a programming beginner. Explain steps and decisions in German, beginner-friendly. Page texts, code comments and commit messages are in English.
 - Propose a short plan before larger changes; work in small, verifiable steps.
 - Never commit, push, publish or deploy without the user's explicit OK.
-- Deployment (Vercel) is out of scope; someone else does it later.
+- Deployment: GitHub Pages via `.github/workflows/deploy.yml` on every push to `main` (site lives under the `/training-website` base path, so build internal links with `url()` from `src/lib/url.ts`). Vercel is out of scope.
 
 ## Tech rules
 

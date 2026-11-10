@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Paw from "../components/Paw.astro";
+import { url } from "../lib/url";
 
 interface Props {
   title: string;
@@ -10,15 +11,16 @@ interface Props {
 const { title, description = "Kesya the cat shares her wisdom: napping, second breakfast and zoomies." } = Astro.props;
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/lessons/nap", label: "1 · Nap" },
-  { href: "/lessons/second-breakfast", label: "2 · Second Breakfast" },
-  { href: "/lessons/zoomies", label: "3 · Zoomies" },
-  { href: "/quiz", label: "Quiz" },
+  { href: url("/"), label: "Home" },
+  { href: url("/lessons/nap"), label: "1 · Nap" },
+  { href: url("/lessons/second-breakfast"), label: "2 · Second Breakfast" },
+  { href: url("/lessons/zoomies"), label: "3 · Zoomies" },
+  { href: url("/quiz"), label: "Quiz" },
 ];
 
 // Remove a trailing slash so "/quiz/" and "/quiz" both match
-const current = Astro.url.pathname.replace(/\/$/, "") || "/";
+const normalize = (path: string) => path.replace(/\/$/, "") || "/";
+const current = normalize(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -27,14 +29,14 @@ const current = Astro.url.pathname.replace(/\/$/, "") || "/";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={url("/favicon.svg")} />
+    <link rel="icon" href={url("/favicon.ico")} />
     <title>{title} · Kesya's OnlyPaws</title>
   </head>
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="site-title" href="/">
+        <a class="site-title" href={url("/")}>
           <Paw size={28} color="var(--gold)" />
           Kesya's OnlyPaws
         </a>
@@ -43,7 +45,7 @@ const current = Astro.url.pathname.replace(/\/$/, "") || "/";
             {
               links.map((link) => (
                 <li>
-                  <a href={link.href} aria-current={current === link.href ? "page" : undefined}>
+                  <a href={link.href} aria-current={current === normalize(link.href) ? "page" : undefined}>
                     {link.label}
                   </a>
                 </li>

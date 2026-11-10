@@ -2,25 +2,26 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Paw from "../components/Paw.astro";
+import { url } from "../lib/url";
 import posterImage from "../assets/kesya/poster.jpg";
 
 const lessons = [
   {
-    href: "/lessons/nap",
+    href: url("/lessons/nap"),
     number: 1,
     title: "The Art of the Nap",
     teaser: "Find the best sun spot and master the perfect sleeping position.",
     color: "var(--surface-2)",
   },
   {
-    href: "/lessons/second-breakfast",
+    href: url("/lessons/second-breakfast"),
     number: 2,
     title: "Operation Second Breakfast",
     teaser: "Convince your human that the first breakfast never happened.",
     color: "var(--surface-2)",
   },
   {
-    href: "/lessons/zoomies",
+    href: url("/lessons/zoomies"),
     number: 3,
     title: "The Zoomie Party",
     teaser: "Lure your human servants away from the screen and into the fun.",
@@ -40,7 +41,7 @@ const lessons = [
           three short lessons and one little quiz.
         </p>
         <p>Each lesson takes about two minutes. That is shorter than my average stretch.</p>
-        <a class="button" href="/lessons/nap">Start lesson 1</a>
+        <a class="button" href={url("/lessons/nap")}>Start lesson 1</a>
       </div>
       <Image
         class="hero__photo"
@@ -67,7 +68,7 @@ const lessons = [
     </ol>
 
     <p class="quiz-cta">
-      Think you have learned enough? <a class="button" href="/quiz">Take the quiz</a>
+      Think you have learned enough? <a class="button" href={url("/quiz")}>Take the quiz</a>
     </p>
   </div>
 </BaseLayout>

@@ -3,6 +3,7 @@
 // Astro passes the Markdown frontmatter in as `frontmatter`.
 import BaseLayout from "./BaseLayout.astro";
 import Paw from "../components/Paw.astro";
+import { url } from "../lib/url";
 
 interface Props {
   frontmatter: {
@@ -26,7 +27,7 @@ const { title, lesson, description, nextHref, nextLabel } = Astro.props.frontmat
       <h1>{title}</h1>
       <slot />
       <nav class="next" aria-label="Next step">
-        <a class="button" href={nextHref}>Next: {nextLabel} →</a>
+        <a class="button" href={url(nextHref)}>Next: {nextLabel} →</a>
       </nav>
     </div>
   </article>
