@@ -1,52 +1,79 @@
 ---
 import "../styles/global.css";
 import Paw from "../components/Paw.astro";
-import { url } from "../lib/url";
+import { url, localized, splitPath } from "../lib/url";
+import { ui, languages, langs } from "../i18n/ui";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "Kesya the cat shares her wisdom: napping, second breakfast and zoomies." } = Astro.props;
+// The language comes from the address: /de/... is German, /cat/... is Cat, everything else English
+const { lang, path: currentPath } = splitPath(Astro.url.pathname);
+const t = ui[lang];
+const { title, description = t.defaultDescription } = Astro.props;
 
 const links = [
-  { href: url("/"), label: "Home" },
-  { href: url("/lessons/nap"), label: "1 · Nap" },
-  { href: url("/lessons/second-breakfast"), label: "2 · Second Breakfast" },
-  { href: url("/lessons/zoomies"), label: "3 · Zoomies" },
-  { href: url("/quiz"), label: "Quiz" },
+  { path: "/", label: t.nav.home },
+  { path: "/lessons/nap", label: t.nav.nap },
+  { path: "/lessons/second-breakfast", label: t.nav.breakfast },
+  { path: "/lessons/zoomies", label: t.nav.zoomies },
+  { path: "/quiz", label: t.nav.quiz },
 ];
-
-// Remove a trailing slash so "/quiz/" and "/quiz" both match
-const normalize = (path: string) => path.replace(/\/$/, "") || "/";
-const current = normalize(Astro.url.pathname);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={languages[lang].htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={url("/favicon.svg")} />
     <link rel="icon" href={url("/favicon.ico")} />
+    {
+      langs.map((l) => (
+        <link rel="alternate" hreflang={languages[l].htmlLang} href={localized(currentPath, l)} />
+      ))
+    }
     <title>{title} · Kesya's OnlyPaws</title>
   </head>
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="site-title" href={url("/")}>
+        <a class="site-title" href={localized("/", lang)}>
           <Paw size={28} color="var(--gold)" />
           Kesya's OnlyPaws
         </a>
-        <nav class="site-nav" aria-label="Main">
+        <nav class="site-nav" aria-label={t.nav.label}>
           <ul>
             {
               links.map((link) => (
                 <li>
-                  <a href={link.href} aria-current={current === normalize(link.href) ? "page" : undefined}>
+                  <a
+                    href={localized(link.path, lang)}
+                    aria-current={currentPath === link.path ? "page" : undefined}
+                  >
                     {link.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+        <nav class="lang-switch" aria-label={t.languageSwitch}>
+          <ul>
+            {
+              langs.map((l) => (
+                <li>
+                  <a
+                    href={localized(currentPath, l)}
+                    hreflang={languages[l].htmlLang}
+                    lang={languages[l].htmlLang}
+                    title={languages[l].name}
+                    aria-current={l === lang ? "true" : undefined}
+                  >
+                    {languages[l].label}
                   </a>
                 </li>
               ))
@@ -63,7 +90,7 @@ const current = normalize(Astro.url.pathname);
     <footer class="site-footer">
       <p>
         <Paw size={20} color="var(--gold)" />
-        Wisdom by Kesya · Typing by her human servant
+        {t.footer}
         <Paw size={20} color="var(--gold)" />
       </p>
     </footer>

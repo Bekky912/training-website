@@ -8,7 +8,7 @@ Was hier nicht steht, wird nicht gebaut.
 
 Eine kleine, statische Lernwebsite, auf der Freund:innen und Familie
 „Kesyas Weisheiten“ lernen: drei kurze Lektionen aus Katzensicht und ein Quiz
-am Ende. Die Seitentexte sind auf Englisch und mit Humor geschrieben.
+am Ende. Die Seitentexte sind mit Humor geschrieben und in drei Sprachen verfügbar: Englisch, Deutsch und Katzisch (reines „Miau“).
 
 ## 2. Zielgruppe
 
@@ -24,6 +24,7 @@ am Ende. Die Seitentexte sind auf Englisch und mit Humor geschrieben.
 5. Als Besucher:in möchte ich am Ende mein Ergebnis sehen (z. B. „3 of 4 correct“) und eine kurze, lustige Bewertung von Kesya und ein passendes Kesya-Foto bekommen.
 6. Als Besucher:in mit Handy möchte ich alles ohne Zoomen und ohne seitliches Scrollen lesen und bedienen können.
 7. Als Besucher:in, die nur die Tastatur nutzt, möchte ich die Navigation und das Quiz vollständig bedienen können.
+8. Als Besucher:in möchte ich die Sprache (Englisch, Deutsch, Katzisch) auf jeder Seite wechseln und dabei auf derselben Seite bleiben.
 
 ## 4. Inhalte
 
@@ -52,7 +53,9 @@ Jede Lektion: ca. 150–300 Wörter (2–3 Minuten Lesezeit), mehrere Fotos als 
 | Lektion 1–3 | `/lessons/nap`, `/lessons/second-breakfast`, `/lessons/zoomies` | Text, Foto(s), „Kesya's Tip“, Link zur nächsten Lektion (Lektion 3 → Quiz) |
 | Quiz | `/quiz` | 4 Fragen (davon 1 Drag & Drop), Feedback, Endergebnis mit Foto |
 
-Auf jeder Seite: dieselbe Kopfzeile mit Navigation (Home, Lessons 1–3, Quiz) und dieselbe Fußzeile.
+Jede Seite gibt es in drei Sprachen: Englisch ohne Präfix (`/quiz`), Deutsch mit `/de` (`/de/quiz`), Katzisch mit `/cat` (`/cat/quiz`). Insgesamt 15 Seiten. Katzisch besteht nur aus Katzenlauten und Emojis; die Reihenfolge der Quiz-Antworten ist in allen Sprachen gleich. Alt-Texte bleiben auf Katzisch englisch, damit Screenreader Sinnvolles vorlesen.
+
+Auf jeder Seite: dieselbe Kopfzeile mit Navigation (Home, Lessons 1–3, Quiz) und Sprachumschalter (EN · DE · 🐾 Miau) sowie dieselbe Fußzeile.
 
 ### Design
 
@@ -76,6 +79,7 @@ Auf jeder Seite: dieselbe Kopfzeile mit Navigation (Home, Lessons 1–3, Quiz) u
 
 - Backend, Datenbank, Login, CMS, externe APIs, React oder andere UI-Frameworks
 - Fortschritt speichern (z. B. „Lektion erledigt“), auch nicht im Browser-Speicher
+- Gewählte Sprache merken (Browser-Speicher) oder automatisch nach Browsersprache umleiten
 - Dark Mode, Animationen (außer dezenten Hover-Effekten), Bestenliste, Timer
 - Mehrere Quizze, zufällige Fragenreihenfolge, Teilen-Buttons
 - Deployment über Vercel (übernimmt ggf. später jemand anderes). Veröffentlicht wird stattdessen per GitHub Pages unter https://bekky912.github.io/training-website/ (Entscheidung vom 2026-11-10).
@@ -95,6 +99,7 @@ Auf jeder Seite: dieselbe Kopfzeile mit Navigation (Home, Lessons 1–3, Quiz) u
 11. Alle Seiten nutzen dasselbe Layout (Kopfzeile, Fußzeile, Farben, Schrift).
 12. Das Repository enthält weder `node_modules/` noch `dist/` noch `.env`, aber `package-lock.json`.
 13. Die Drag-&-Drop-Frage ist mit Maus (Ziehen), Finger (Ziehen oder Antippen) und Tastatur (Enter/Leertaste) lösbar. „Check“ ist erst aktiv, wenn alle 3 Fotos zugeordnet sind. Danach ist jede Zuordnung mit ✓/✗ markiert und gesperrt.
+14. Alle 15 Seiten (5 Seiten × 3 Sprachen) werden gebaut. Auf jeder Seite führt der Sprachumschalter zur selben Seite in der anderen Sprache, die aktuelle Sprache ist markiert, und `<html lang>` passt zur Sprache (`en`, `de`, `en-x-cat`).
 
 ## 9. Entscheidungen
 

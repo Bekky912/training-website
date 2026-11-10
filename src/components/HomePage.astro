@@ -1,0 +1,106 @@
+---
+// The home page content. Used by src/pages/index.astro, src/pages/de/index.astro and src/pages/cat/index.astro.
+// The language is taken from the page address.
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Paw from "./Paw.astro";
+import { localized, splitPath } from "../lib/url";
+import { ui } from "../i18n/ui";
+import posterImage from "../assets/kesya/poster.jpg";
+
+const { lang } = splitPath(Astro.url.pathname);
+const t = ui[lang].home;
+
+const lessonPaths = ["/lessons/nap", "/lessons/second-breakfast", "/lessons/zoomies"];
+---
+
+<BaseLayout title={t.title}>
+  <div class="card">
+    <div class="hero">
+      <div class="hero__text">
+        <h1>{t.heading}</h1>
+        <p set:html={t.intro} />
+        <p>{t.duration}</p>
+        <a class="button" href={localized("/lessons/nap", lang)}>{t.start}</a>
+      </div>
+      <Image class="hero__photo" src={posterImage} alt={t.posterAlt} width={500} />
+    </div>
+
+    <h2 class="lessons-heading">
+      <Paw size={28} color="var(--gold)" /> {t.lessonsHeading}
+    </h2>
+    <ol class="lesson-list">
+      {
+        t.lessons.map((lesson, i) => (
+          <li>
+            <a href={localized(lessonPaths[i], lang)}>
+              {t.lessonWord} {i + 1}: {lesson.title}
+            </a>
+            <p>{lesson.teaser}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="quiz-cta">
+      {t.quizCta} <a class="button" href={localized("/quiz", lang)}>{t.quizButton}</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 48rem) {
+    .hero {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+
+  .lessons-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .lesson-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 48rem) {
+    .lesson-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .lesson-list li {
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--gold-dark);
+    border-radius: var(--radius);
+    background: var(--surface-2);
+  }
+
+  .lesson-list a {
+    font-size: 1.1rem;
+  }
+
+  .lesson-list p {
+    margin: 0.5rem 0 0;
+  }
+
+  .quiz-cta {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+</style>

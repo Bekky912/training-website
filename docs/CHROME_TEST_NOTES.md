@@ -42,6 +42,17 @@ Date: 2026-11-10 · Tested by Claude Code in the Claude desktop app's built-in b
 - AC 10: ✅ all photos have alt text; drag & drop photos are described by their button label
 - Not tested: real touch devices (only mouse/keyboard input possible in the test browser)
 
+## Re-test after adding English / German / Cat (2026-11-11)
+
+- `npm run build`: ✅ 15 pages (5 pages × 3 languages), no errors
+- AC 14, checked on all 15 pages at 375 px:
+  - `<html lang>` is `en`, `de` or `en-x-cat`: ✅
+  - Language switch links to the same page in the other languages, current language marked: ✅
+  - Current page marked in the nav, no links to non-existing pages: ✅
+  - No horizontal scrolling: ✅; all photos have alt text (Cat uses English alt texts): ✅
+- German quiz, all right: "4 von 4 richtig" + throne photo, German feedback and status texts: ✅
+- Cat quiz, all wrong: "0 mew 4 prrr" + grumpy photo, Cat feedback ("✗ HSSS."): ✅
+
 ## Notes
 
 - Photos are converted to WebP by Astro at build time (e.g. 498 kB → 160 kB).

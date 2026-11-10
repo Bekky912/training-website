@@ -1,0 +1,615 @@
+---
+// The quiz. Used by src/pages/quiz.astro, src/pages/de/quiz.astro and src/pages/cat/quiz.astro.
+// The language is taken from the page address; all texts come from src/i18n/ui.ts.
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Paw from "./Paw.astro";
+import { splitPath } from "../lib/url";
+import { ui } from "../i18n/ui";
+
+import sunNap from "../assets/kesya/sun-nap.jpg";
+import puzzleHack from "../assets/kesya/puzzle-hack.jpg";
+import partyBag from "../assets/kesya/party-bag.jpg";
+import throne from "../assets/kesya/throne.jpg";
+import glamour from "../assets/kesya/glamour.jpg";
+import grumpy from "../assets/kesya/grumpy-bandana.jpg";
+
+const { lang } = splitPath(Astro.url.pathname);
+const t = ui[lang].quiz;
+
+// Index (0, 1, 2) of the right answer per question – the same in every language
+const correctAnswers = [1, 2, 0];
+
+// Photo descriptions stay readable for humans: Cat uses the English ones
+const alts = {
+  en: {
+    zoomies: "Kesya with her head inside a blue plastic bag",
+    napping: "Kesya with closed eyes in warm sunlight",
+    eating: "Kesya next to a tipped-over food puzzle with kibble everywhere",
+    top: "Kesya lying on her own throne, a cardboard lounge with the letters KESYA",
+    good: "Kesya posing elegantly on a shiny blue blanket",
+    low: "Kesya sitting in the grass with a red bandana, looking very grumpy",
+  },
+  de: {
+    zoomies: "Kesya mit dem Kopf in einer blauen Plastiktüte",
+    napping: "Kesya mit geschlossenen Augen im warmen Sonnenlicht",
+    eating: "Kesya neben einem umgekippten Futterpuzzle, überall liegt Trockenfutter",
+    top: "Kesya liegt auf ihrem eigenen Thron, einer Pappliege mit den Buchstaben KESYA",
+    good: "Kesya posiert elegant auf einer glänzenden blauen Decke",
+    low: "Kesya sitzt mit rotem Halstuch im Gras und schaut sehr grimmig",
+  },
+};
+const alt = lang === "de" ? alts.de : alts.en;
+
+// Drag & drop question: photos in the tray (deliberately not in slot order) and the activity slots.
+const photos = [
+  { activity: "zoomies", src: partyBag, alt: alt.zoomies },
+  { activity: "napping", src: sunNap, alt: alt.napping },
+  { activity: "eating", src: puzzleHack, alt: alt.eating },
+];
+
+const slots = (["napping", "eating", "zoomies"] as const).map((activity) => ({
+  activity,
+  label: t.sort.slots[activity],
+}));
+
+const sortIndex = t.questions.length;
+
+// Texts the browser script needs
+const scriptTexts = {
+  correct: t.correct,
+  wrong: t.wrong,
+  score: t.score,
+  results: t.results,
+  selected: t.sort.selected,
+  placed: t.sort.placed,
+  backToTray: t.sort.backToTray,
+  chooseFirst: t.sort.chooseFirst,
+  partly: t.sort.partly,
+  sortExplanation: t.sort.explanation,
+};
+---
+
+<BaseLayout title={t.title} description={t.description}>
+  <div class="card">
+    <div class="prose" data-texts={JSON.stringify(scriptTexts)}>
+      <h1>{t.heading}</h1>
+      <p>{t.intro}</p>
+
+      <ol class="questions">
+        {
+          t.questions.map((q, qIndex) => (
+            <li class="question" data-type="choice" data-correct={correctAnswers[qIndex]}>
+              <h2 id={`q${qIndex}`}>{q.question}</h2>
+              <div class="answers" role="group" aria-labelledby={`q${qIndex}`}>
+                {q.answers.map((answer, aIndex) => (
+                  <button type="button" class="answer" data-index={aIndex}>
+                    {answer}
+                  </button>
+                ))}
+              </div>
+              <p class="feedback" aria-live="polite" tabindex="-1" hidden>
+                <strong class="feedback__verdict" />
+                <span>{q.explanation}</span>
+              </p>
+            </li>
+          ))
+        }
+
+        <li class="question sort" data-type="sort">
+          <h2 id={`q${sortIndex}`}>{t.sort.heading}</h2>
+          <p class="sort__help" id="sort-help">{t.sort.help}</p>
+
+          <div class="sort__tray" aria-label={t.sort.trayLabel} role="group">
+            {
+              photos.map((photo, i) => (
+                <button
+                  type="button"
+                  class="tile"
+                  data-activity={photo.activity}
+                  aria-pressed="false"
+                  aria-describedby="sort-help"
+                  aria-label={`${t.sort.photoLabel} ${i + 1}: ${photo.alt}`}
+                >
+                  <Image src={photo.src} alt="" width={300} />
+                </button>
+              ))
+            }
+          </div>
+
+          <div class="sort__slots">
+            {
+              slots.map((slot) => (
+                <div class="slot" data-activity={slot.activity}>
+                  <button type="button" class="slot__target">
+                    {slot.label}
+                  </button>
+                  <div class="slot__content" />
+                </div>
+              ))
+            }
+          </div>
+
+          <p class="sort__status" aria-live="polite"></p>
+          <button type="button" class="button sort__check" disabled>{t.sort.check}</button>
+
+          <p class="feedback" aria-live="polite" tabindex="-1" hidden>
+            <strong class="feedback__verdict" />
+            <span class="feedback__text"></span>
+          </p>
+        </li>
+      </ol>
+
+      <section class="result" aria-live="polite" hidden>
+        <h2 tabindex="-1">
+          <Paw size={28} color="var(--on-gold)" />
+          <span class="result__score"></span>
+        </h2>
+        <p class="result__message"></p>
+        <Image class="result__photo" data-tier="top" src={throne} alt={alt.top} width={500} hidden />
+        <Image class="result__photo" data-tier="good" src={glamour} alt={alt.good} width={500} hidden />
+        <Image class="result__photo" data-tier="low" src={grumpy} alt={alt.low} width={500} hidden />
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Texts in the page's language, written into the HTML by Astro (see `scriptTexts` above)
+  const texts = JSON.parse(document.querySelector<HTMLElement>("[data-texts]")!.dataset.texts!);
+  const fill = (text: string, values: Record<string, string | number>) =>
+    text.replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? ""));
+
+  const questions = document.querySelectorAll<HTMLElement>(".question");
+  const result = document.querySelector<HTMLElement>(".result")!;
+  const total = questions.length;
+  let answered = 0;
+  let score = 0;
+
+  // Called after every answered question
+  function questionDone(isCorrect: boolean, feedback: HTMLElement) {
+    answered += 1;
+    if (isCorrect) score += 1;
+
+    if (answered === total) {
+      showResult();
+    } else {
+      // The clicked button is now disabled, so move keyboard focus to the feedback
+      feedback.focus();
+    }
+  }
+
+  function showResult() {
+    result.querySelector(".result__score")!.textContent = fill(texts.score, { score, total });
+
+    let tier: "top" | "good" | "low";
+    if (score === total) {
+      tier = "top";
+    } else if (score >= total - 1) {
+      tier = "good";
+    } else {
+      tier = "low";
+    }
+    result.querySelector(".result__message")!.textContent = texts.results[tier];
+    result.querySelectorAll<HTMLElement>(".result__photo").forEach((img) => {
+      img.hidden = img.dataset.tier !== tier;
+    });
+
+    result.hidden = false;
+    result.querySelector<HTMLElement>("h2")!.focus();
+  }
+
+  // ---------- Multiple-choice questions ----------
+
+  document.querySelectorAll<HTMLElement>('.question[data-type="choice"]').forEach((question) => {
+    const correct = Number(question.dataset.correct);
+    const buttons = question.querySelectorAll<HTMLButtonElement>(".answer");
+    const feedback = question.querySelector<HTMLElement>(".feedback")!;
+    const verdict = question.querySelector<HTMLElement>(".feedback__verdict")!;
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const isCorrect = Number(button.dataset.index) === correct;
+
+        // Lock this question and highlight the right answer
+        buttons.forEach((b) => {
+          b.disabled = true;
+          if (Number(b.dataset.index) === correct) b.classList.add("is-correct");
+        });
+        if (!isCorrect) button.classList.add("is-wrong");
+
+        verdict.textContent = isCorrect ? texts.correct : texts.wrong;
+        feedback.classList.add(isCorrect ? "feedback--correct" : "feedback--wrong");
+        feedback.hidden = false;
+
+        questionDone(isCorrect, feedback);
+      });
+    });
+  });
+
+  // ---------- Drag & drop question ----------
+  // Works three ways: drag with mouse or finger (pointer events), or select a photo
+  // and then an activity (click, tap or Enter/Space on the keyboard).
+
+  const sort = document.querySelector<HTMLElement>('.question[data-type="sort"]')!;
+  const tray = sort.querySelector<HTMLElement>(".sort__tray")!;
+  const tiles = [...sort.querySelectorAll<HTMLButtonElement>(".tile")];
+  const slotEls = [...sort.querySelectorAll<HTMLElement>(".slot")];
+  const status = sort.querySelector<HTMLElement>(".sort__status")!;
+  const checkButton = sort.querySelector<HTMLButtonElement>(".sort__check")!;
+  const sortFeedback = sort.querySelector<HTMLElement>(".feedback")!;
+  let selected: HTMLButtonElement | null = null;
+  let locked = false;
+
+  const labelOf = (slot: HTMLElement) => slot.querySelector(".slot__target")!.textContent!.trim();
+
+  function select(tile: HTMLButtonElement | null) {
+    selected?.setAttribute("aria-pressed", "false");
+    selected = tile;
+    if (tile) {
+      tile.setAttribute("aria-pressed", "true");
+      status.textContent = texts.selected;
+    }
+  }
+
+  // Put a tile into a slot (or back into the tray). A photo already in that slot goes back to the tray.
+  function place(tile: HTMLButtonElement, slot: HTMLElement | null) {
+    if (slot) {
+      const content = slot.querySelector<HTMLElement>(".slot__content")!;
+      const existing = content.querySelector<HTMLButtonElement>(".tile");
+      if (existing && existing !== tile) tray.appendChild(existing);
+      content.appendChild(tile);
+      status.textContent = fill(texts.placed, { slot: labelOf(slot) });
+    } else {
+      tray.appendChild(tile);
+      status.textContent = texts.backToTray;
+    }
+    select(null);
+    tile.focus();
+    checkButton.disabled = slotEls.some((s) => !s.querySelector(".tile"));
+  }
+
+  // Click / tap / keyboard: select a photo, then an activity
+  tiles.forEach((tile) => {
+    tile.addEventListener("click", () => {
+      if (locked) return;
+      if (tile.dataset.justDragged) {
+        delete tile.dataset.justDragged;
+        return;
+      }
+      select(selected === tile ? null : tile);
+    });
+  });
+
+  slotEls.forEach((slot) => {
+    slot.querySelector(".slot__target")!.addEventListener("click", () => {
+      if (locked) return;
+      if (selected) {
+        place(selected, slot);
+      } else {
+        status.textContent = texts.chooseFirst;
+      }
+    });
+  });
+
+  // Mouse and touch: drag the photo and drop it on an activity
+  tiles.forEach((tile) => {
+    let startX = 0;
+    let startY = 0;
+    let dragging = false;
+
+    tile.addEventListener("pointerdown", (event) => {
+      if (locked || event.button !== 0) return;
+      startX = event.clientX;
+      startY = event.clientY;
+      dragging = false;
+      tile.setPointerCapture(event.pointerId);
+    });
+
+    tile.addEventListener("pointermove", (event) => {
+      if (!tile.hasPointerCapture(event.pointerId)) return;
+      const dx = event.clientX - startX;
+      const dy = event.clientY - startY;
+      if (!dragging && Math.hypot(dx, dy) < 6) return; // small movements are clicks
+      dragging = true;
+      tile.classList.add("is-dragging");
+      tile.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+
+    tile.addEventListener("pointerup", (event) => {
+      if (!tile.hasPointerCapture(event.pointerId)) return;
+      tile.releasePointerCapture(event.pointerId);
+      if (!dragging) return;
+
+      tile.classList.remove("is-dragging");
+      tile.style.transform = "";
+      // Ignore the click that may follow a drag, but only that one
+      tile.dataset.justDragged = "true";
+      setTimeout(() => delete tile.dataset.justDragged, 0);
+
+      const target = document
+        .elementsFromPoint(event.clientX, event.clientY)
+        .find((el) => el !== tile && !tile.contains(el));
+      const slot = target?.closest<HTMLElement>(".slot") ?? null;
+      if (slot) {
+        place(tile, slot);
+      } else if (target?.closest(".sort__tray")) {
+        place(tile, null);
+      }
+    });
+
+    tile.addEventListener("pointercancel", () => {
+      dragging = false;
+      tile.classList.remove("is-dragging");
+      tile.style.transform = "";
+    });
+  });
+
+  checkButton.addEventListener("click", () => {
+    locked = true;
+    checkButton.disabled = true;
+    let right = 0;
+
+    slotEls.forEach((slot) => {
+      const tile = slot.querySelector<HTMLButtonElement>(".tile")!;
+      const ok = tile.dataset.activity === slot.dataset.activity;
+      if (ok) right += 1;
+      slot.classList.add(ok ? "is-correct" : "is-wrong");
+      slot.querySelector<HTMLButtonElement>(".slot__target")!.textContent =
+        `${ok ? "✓" : "✗"} ${labelOf(slot)}`;
+      tiles.forEach((t) => (t.disabled = true));
+      slot.querySelector<HTMLButtonElement>(".slot__target")!.disabled = true;
+    });
+
+    const isCorrect = right === slotEls.length;
+    sortFeedback.querySelector(".feedback__verdict")!.textContent = isCorrect
+      ? texts.correct
+      : fill(texts.partly, { right, total: slotEls.length });
+    sortFeedback.querySelector(".feedback__text")!.textContent =
+      texts.sortExplanation;
+    sortFeedback.classList.add(isCorrect ? "feedback--correct" : "feedback--wrong");
+    sortFeedback.hidden = false;
+    status.textContent = "";
+
+    questionDone(isCorrect, sortFeedback);
+  });
+</script>
+
+<style>
+  .questions {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr); /* never wider than the screen */
+    gap: 2rem;
+  }
+
+  .question h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .answers {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .answer {
+    font: inherit;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gold-dark);
+    border-radius: var(--radius);
+    background: var(--surface-2);
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .answer:hover:not(:disabled) {
+    border-color: var(--gold-light);
+    box-shadow: var(--glow);
+  }
+
+  .answer:disabled {
+    cursor: default;
+    opacity: 0.55;
+  }
+
+  .answer.is-correct,
+  .answer.is-wrong {
+    opacity: 1;
+  }
+
+  .answer.is-correct {
+    background: var(--gold);
+    border-color: var(--gold-light);
+    color: var(--on-gold);
+    font-weight: 600;
+  }
+
+  .answer.is-wrong {
+    border-color: var(--rose);
+    color: var(--rose);
+    text-decoration: line-through;
+  }
+
+  .feedback {
+    margin: 0.75rem 0 0;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    background: var(--surface-2);
+    border-left: 4px solid var(--gold);
+  }
+
+  .feedback--wrong {
+    border-left-color: var(--rose);
+  }
+
+  .feedback--wrong .feedback__verdict {
+    color: var(--rose);
+  }
+
+  /* ---------- Drag & drop question ---------- */
+
+  .sort__help {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+
+  .sort__tray,
+  .sort__slots {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.4rem, 2vw, 0.75rem);
+  }
+
+  .sort__tray {
+    min-height: 6rem;
+    padding: clamp(0.4rem, 2vw, 0.75rem);
+    border: 1px dashed var(--gold-dark);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+  }
+
+  .tile {
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    background: none;
+    cursor: grab;
+    touch-action: none; /* lets a finger drag the photo instead of scrolling */
+    width: 100%;
+  }
+
+  .tile :global(img) {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .tile[aria-pressed="true"] {
+    border-color: var(--gold-light);
+    box-shadow: var(--glow);
+  }
+
+  .tile.is-dragging {
+    position: relative;
+    z-index: 10;
+    cursor: grabbing;
+    opacity: 0.85;
+  }
+
+  .tile:disabled {
+    cursor: default;
+  }
+
+  .slot {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: clamp(0.25rem, 1.5vw, 0.5rem);
+    border: 1px solid var(--gold-dark);
+    border-radius: var(--radius);
+    background: var(--surface-2);
+  }
+
+  .slot__target {
+    font: inherit;
+    font-size: clamp(0.8rem, 3.6vw, 1.05rem);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+    padding: 0.45rem 0.25rem;
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--gold-light);
+    cursor: pointer;
+  }
+
+  .slot__target:hover:not(:disabled) {
+    background: var(--gold);
+    color: var(--on-gold);
+  }
+
+  .slot__content {
+    min-height: 4rem;
+  }
+
+  .slot.is-correct {
+    border-color: var(--gold-light);
+  }
+
+  .slot.is-correct .slot__target {
+    background: var(--gold);
+    color: var(--on-gold);
+  }
+
+  .slot.is-wrong {
+    border-color: var(--rose);
+  }
+
+  .slot.is-wrong .slot__target {
+    border-color: var(--rose);
+    color: var(--rose);
+  }
+
+  .slot__target:disabled {
+    cursor: default;
+  }
+
+  .sort__status {
+    min-height: 1.6em;
+    margin: 0.75rem 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+
+  .sort__check {
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .sort__check:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  /* ---------- Result ---------- */
+
+  .result {
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(180deg, var(--gold-light), var(--gold) 60%, var(--gold-dark));
+    color: var(--on-gold);
+    border-radius: var(--radius);
+    box-shadow: var(--glow);
+  }
+
+  .result h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    color: var(--on-gold);
+  }
+
+  .result p {
+    margin: 0.5rem 0 0;
+  }
+
+  .result :global(.result__photo) {
+    margin: 1rem auto 0;
+    max-height: 50vh;
+    width: auto;
+  }
+
+  .result :global(.result__photo[hidden]) {
+    display: none;
+  }
+</style>

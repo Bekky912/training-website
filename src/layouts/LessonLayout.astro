@@ -1,33 +1,36 @@
 ---
-// Wrapper for the Markdown lessons in src/pages/lessons/.
+// Wrapper for the Markdown lessons in src/pages/lessons/, src/pages/de/lessons/ and src/pages/cat/lessons/.
 // Astro passes the Markdown frontmatter in as `frontmatter`.
 import BaseLayout from "./BaseLayout.astro";
 import Paw from "../components/Paw.astro";
-import { url } from "../lib/url";
+import { localized, splitPath } from "../lib/url";
+import { ui } from "../i18n/ui";
 
 interface Props {
   frontmatter: {
     title: string;
     lesson: number;
     description: string;
-    nextHref: string;
+    nextHref: string; // language-neutral, e.g. "/quiz"
     nextLabel: string;
   };
 }
 
 const { title, lesson, description, nextHref, nextLabel } = Astro.props.frontmatter;
+const { lang } = splitPath(Astro.url.pathname);
+const t = ui[lang];
 ---
 
 <BaseLayout title={title} description={description}>
   <article class="card">
     <div class="prose">
       <p class="lesson-label">
-        <Paw size={20} color="var(--gold)" /> Lesson {lesson} of 3
+        <Paw size={20} color="var(--gold)" /> {t.lessonLabel(lesson)}
       </p>
       <h1>{title}</h1>
       <slot />
-      <nav class="next" aria-label="Next step">
-        <a class="button" href={url(nextHref)}>Next: {nextLabel} →</a>
+      <nav class="next" aria-label={t.nextStep}>
+        <a class="button" href={localized(nextHref, lang)}>{t.next}: {nextLabel} →</a>
       </nav>
     </div>
   </article>
