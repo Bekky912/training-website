@@ -10,7 +10,7 @@ nextLabel: Operation Second Breakfast
 A cat sleeps up to sixteen hours a day. Humans call this lazy. I call it **training**. Every
 nap is practice for the next nap, and I am very, very well trained.
 
-![Kesya, a brown tabby cat, sleeping in the sunshine on a window sill, snowy balcony behind her](../../assets/kesya/nap.jpg)
+![Close-up of Kesya, a brown tabby cat, sleeping peacefully with her eyes closed in warm golden sunlight](../../assets/kesya/sun-nap.jpg)
 
 ## Rule 1: Follow the sun
 
@@ -21,12 +21,24 @@ professional napper moves with it. Two or three relocations before lunch are com
 In winter the window sill is the best seat in the house. Warm sun on the fur, cold snow outside,
 and a perfect view of the birds who are *not* napping. Poor things.
 
+![Kesya sleeping in the sunshine on a window sill, snowy balcony behind her](../../assets/kesya/nap.jpg)
+
 ## Rule 2: Choose your position
 
-- **The loaf:** paws tucked in, ready to wake up for food. Good for short naps.
-- **The donut:** curled up, tail over the nose. Good for cold days and serious sleep.
-- **The puddle:** stretched out flat, one paw hanging off the edge. Only when you feel completely
-  safe. Humans find this position irresistible, so expect photos.
+**The loaf.** Paws tucked in, ready to wake up for food. Keep one eye half open: the human must
+never know if you are really asleep.
+
+![Kesya lying like a loaf of bread on the back of a sofa, eyes only half open](../../assets/kesya/loaf.jpg)
+
+**The donut.** Curled up, tail over the nose. Good for cold days and serious sleep.
+Advanced level: sleep *inside* an actual donut.
+
+![Kesya crawling into a grey felt cat bed shaped like a donut, only her back and tail still visible](../../assets/kesya/donut-cave.jpg)
+
+**The wedge.** Find the narrowest gap in the home, for example between the mattress and the
+wall, and squeeze in. The smaller the gap, the better the nap.
+
+![Kesya fast asleep, squeezed into the narrow gap between a mattress and the wall, one paw hanging down](../../assets/kesya/wedge.jpg)
 
 ## Rule 3: Never nap where the human wants you to
 
@@ -34,4 +46,4 @@ If your human puts a blanket down for you, sit next to it. If they open the lapt
 keyboard. A nap is not only rest; it is also a statement.
 
 > **Kesya's Tip:** The perfect nap spot is warm, a little high up and exactly where your human
-> wanted to sit.
+> wanted to sit. If it is also too small for you, even better.

@@ -21,7 +21,7 @@ const { title, lesson, description, nextHref, nextLabel } = Astro.props.frontmat
   <article class="card">
     <div class="prose">
       <p class="lesson-label">
-        <Paw size={20} color="var(--teal)" /> Lesson {lesson} of 3
+        <Paw size={20} color="var(--gold)" /> Lesson {lesson} of 3
       </p>
       <h1>{title}</h1>
       <slot />
@@ -38,7 +38,7 @@ const { title, lesson, description, nextHref, nextLabel } = Astro.props.frontmat
     align-items: center;
     gap: 0.4rem;
     margin: 0 0 0.5rem;
-    color: var(--teal);
+    color: var(--gold);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;

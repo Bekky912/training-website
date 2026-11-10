@@ -1,18 +1,23 @@
-/* Kesya's OnlyPaws – global styles */
+/* Kesya's OnlyPaws – global styles ("dark & gold" theme) */
 
 :root {
-  --pink: #e8488a;
-  --pink-light: #fde3ee;
-  --teal: #1a9e9a;
-  --teal-light: #d8f3f1;
-  --yellow: #ffc93c;
-  --yellow-light: #fff4d1;
-  --brown: #3b2a20;
-  --white: #ffffff;
+  --bg: #140c0f;          /* near-black with a hint of plum */
+  --surface: #221419;     /* reading area */
+  --surface-2: #2f1d24;   /* cards, panels */
+  --text: #f6ead7;        /* warm cream */
+  --text-muted: #cdb9a0;
+  --gold: #d9ad5b;
+  --gold-light: #f3d68f;
+  --gold-dark: #8a6428;
+  --on-gold: #1c1013;     /* text on gold backgrounds */
+  --rose: #d98a8a;        /* wrong quiz answers */
 
   --radius: 1rem;
   --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-script: "Segoe Script", "Brush Script MT", "Snell Roundhand", cursive;
   --text-width: 65ch;
+  --glow: 0 0 18px rgba(217, 173, 91, 0.45);
 }
 
 *,
@@ -22,11 +27,11 @@
 }
 
 html {
-  /* Background: a repeating pattern of pink and teal paws (pure decoration) */
-  background-color: var(--yellow-light);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='%23e8488a' fill-opacity='0.22' transform='translate(12 10) rotate(-20 32 32)'%3E%3Cellipse cx='32' cy='42' rx='15' ry='13'/%3E%3Cellipse cx='13' cy='25' rx='6' ry='8'/%3E%3Cellipse cx='25' cy='14' rx='6' ry='8'/%3E%3Cellipse cx='39' cy='14' rx='6' ry='8'/%3E%3Cellipse cx='51' cy='25' rx='6' ry='8'/%3E%3C/g%3E%3Cg fill='%231a9e9a' fill-opacity='0.22' transform='translate(88 86) rotate(25 32 32)'%3E%3Cellipse cx='32' cy='42' rx='15' ry='13'/%3E%3Cellipse cx='13' cy='25' rx='6' ry='8'/%3E%3Cellipse cx='25' cy='14' rx='6' ry='8'/%3E%3Cellipse cx='39' cy='14' rx='6' ry='8'/%3E%3Cellipse cx='51' cy='25' rx='6' ry='8'/%3E%3C/g%3E%3C/svg%3E");
+  /* Background: a repeating pattern of golden paws (pure decoration) */
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='%23d9ad5b' fill-opacity='0.12' transform='translate(12 10) rotate(-20 32 32)'%3E%3Cellipse cx='32' cy='42' rx='15' ry='13'/%3E%3Cellipse cx='13' cy='25' rx='6' ry='8'/%3E%3Cellipse cx='25' cy='14' rx='6' ry='8'/%3E%3Cellipse cx='39' cy='14' rx='6' ry='8'/%3E%3Cellipse cx='51' cy='25' rx='6' ry='8'/%3E%3C/g%3E%3Cg fill='%23d9ad5b' fill-opacity='0.07' transform='translate(88 86) rotate(25 32 32)'%3E%3Cellipse cx='32' cy='42' rx='15' ry='13'/%3E%3Cellipse cx='13' cy='25' rx='6' ry='8'/%3E%3Cellipse cx='25' cy='14' rx='6' ry='8'/%3E%3Cellipse cx='39' cy='14' rx='6' ry='8'/%3E%3Cellipse cx='51' cy='25' rx='6' ry='8'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 160px 160px;
-  color: var(--brown);
+  color: var(--text);
   font-family: var(--font);
   font-size: 1.125rem;
   line-height: 1.6;
@@ -45,32 +50,41 @@ img {
   height: auto;
   display: block;
   border-radius: var(--radius);
+  border: 2px solid var(--gold-dark);
 }
 
 h1,
 h2,
 h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
   line-height: 1.2;
+  color: var(--gold-light);
 }
 
 h1 {
-  color: var(--pink);
+  color: var(--gold);
   font-size: clamp(2rem, 6vw, 3rem);
   margin-top: 0;
+  text-shadow: var(--glow);
+}
+
+strong {
+  color: var(--gold-light);
 }
 
 a {
-  color: var(--teal);
+  color: var(--gold-light);
   font-weight: 600;
 }
 
 a:hover {
-  color: var(--pink);
+  color: var(--gold);
 }
 
 /* Clearly visible keyboard focus everywhere */
 :focus-visible {
-  outline: 3px solid var(--pink);
+  outline: 3px solid var(--gold-light);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -78,8 +92,8 @@ a:hover {
 /* ---------- Header & navigation ---------- */
 
 .site-header {
-  background: var(--teal);
-  color: var(--white);
+  background: linear-gradient(180deg, #2a171d, var(--bg));
+  border-bottom: 1px solid var(--gold-dark);
   padding: 0.75rem 1rem;
 }
 
@@ -97,14 +111,16 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--white);
-  font-size: 1.25rem;
-  font-weight: 800;
+  color: var(--gold);
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  font-weight: 400;
   text-decoration: none;
+  text-shadow: var(--glow);
 }
 
 .site-title:hover {
-  color: var(--yellow);
+  color: var(--gold-light);
 }
 
 .site-nav ul {
@@ -118,25 +134,24 @@ a:hover {
 
 .site-nav a {
   display: inline-block;
-  padding: 0.25rem 0.6rem;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid transparent;
   border-radius: 999px;
-  color: var(--white);
+  color: var(--text);
   text-decoration: none;
   font-size: 1rem;
+  font-weight: 400;
 }
 
 .site-nav a:hover {
-  background: var(--teal-light);
-  color: var(--brown);
+  border-color: var(--gold-dark);
+  color: var(--gold-light);
 }
 
 .site-nav a[aria-current="page"] {
-  background: var(--yellow);
-  color: var(--brown);
-}
-
-.site-header :focus-visible {
-  outline-color: var(--yellow);
+  background: var(--gold);
+  color: var(--on-gold);
+  font-weight: 600;
 }
 
 /* ---------- Main content ---------- */
@@ -147,17 +162,18 @@ main {
   max-width: 60rem;
   margin: 0 auto;
   padding: 2rem 1rem 3rem;
-  position: relative;
 }
 
-/* White reading area keeps text calm on the colourful background */
+/* Reading area with a thin golden double frame, like the poster's ornaments */
 .card {
-  background: var(--white);
+  background: var(--surface);
+  border: 1px solid var(--gold-dark);
+  outline: 1px solid rgba(217, 173, 91, 0.35);
+  outline-offset: 6px;
   border-radius: var(--radius);
   padding: clamp(1.25rem, 4vw, 2.5rem);
-  box-shadow: 0 4px 0 var(--pink-light);
-  position: relative;
-  z-index: 1;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  margin: 6px;
 }
 
 .prose {
@@ -176,9 +192,11 @@ main {
 .prose blockquote {
   margin: 2rem 0 0;
   padding: 1rem 1.25rem;
-  background: var(--pink-light);
-  border-left: 6px solid var(--pink);
+  background: var(--surface-2);
+  border-left: 4px solid var(--gold);
   border-radius: 0 var(--radius) var(--radius) 0;
+  font-family: var(--font-serif);
+  font-style: italic;
 }
 
 .prose blockquote p {
@@ -187,27 +205,31 @@ main {
 
 .button {
   display: inline-block;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--gold-light);
   border-radius: 999px;
-  background: var(--pink);
-  color: var(--white);
+  background: linear-gradient(180deg, var(--gold-light), var(--gold) 60%, var(--gold-dark));
+  color: var(--on-gold);
   text-decoration: none;
   font-weight: 700;
+  box-shadow: var(--glow);
 }
 
 .button:hover {
-  background: var(--brown);
-  color: var(--white);
+  color: var(--on-gold);
+  background: var(--gold-light);
 }
 
 /* ---------- Footer ---------- */
 
 .site-footer {
-  background: var(--pink);
-  color: var(--white);
+  border-top: 1px solid var(--gold-dark);
+  color: var(--text-muted);
   text-align: center;
   padding: 1rem;
   font-size: 0.95rem;
+  font-family: var(--font-serif);
+  font-style: italic;
 }
 
 .site-footer p {
