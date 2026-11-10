@@ -1,0 +1,229 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Paw from "../components/Paw.astro";
+
+// The quiz content. `correct` is the index (0, 1, 2) of the right answer.
+const questions = [
+  {
+    question: "Where is the best place for a nap?",
+    answers: [
+      "In the expensive cat bed your human bought",
+      "In the small square of sunshine, wherever it is right now",
+      "Wherever the human tells you to sleep",
+    ],
+    correct: 1,
+    explanation:
+      "The sun spot always wins. And because the sun moves, a professional napper moves with it.",
+  },
+  {
+    question: "You finished your first breakfast. What do you do next?",
+    answers: [
+      "Accept your fate and go back to sleep",
+      "Leave a few pieces in the bowl for later",
+      "Sit next to the clean bowl and stare at your human without blinking",
+    ],
+    correct: 2,
+    explanation:
+      "A clean bowl plus a sad face is the strongest evidence that breakfast never happened.",
+  },
+  {
+    question: "Your human is playing a video game. How do you start the zoomie party?",
+    answers: [
+      "Sit between the human and the screen, lift a paw, then run",
+      "Do the zoomies alone in the kitchen",
+      "Wait politely until the game is over",
+    ],
+    correct: 0,
+    explanation:
+      "First become part of the screen, then run. A good party needs at least one human who is out of breath.",
+  },
+];
+---
+
+<BaseLayout title="Quiz" description="Test what you learned from Kesya in three quick questions.">
+  <div class="card">
+    <div class="prose">
+      <h1>Kesya's Quiz</h1>
+      <p>Three questions, one for each lesson. Choose an answer to see if Kesya agrees with you.</p>
+
+      <ol class="questions">
+        {
+          questions.map((q, qIndex) => (
+            <li class="question" data-correct={q.correct}>
+              <h2 id={`q${qIndex}`}>{q.question}</h2>
+              <div class="answers" role="group" aria-labelledby={`q${qIndex}`}>
+                {q.answers.map((answer, aIndex) => (
+                  <button type="button" class="answer" data-index={aIndex}>
+                    {answer}
+                  </button>
+                ))}
+              </div>
+              <p class="feedback" aria-live="polite" tabindex="-1" hidden>
+                <strong class="feedback__verdict" />
+                <span>{q.explanation}</span>
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <section class="result" aria-live="polite" hidden>
+        <h2 tabindex="-1">
+          <Paw size={28} color="var(--pink)" />
+          <span class="result__score"></span>
+        </h2>
+        <p class="result__message"></p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const questions = document.querySelectorAll<HTMLElement>(".question");
+  const result = document.querySelector<HTMLElement>(".result")!;
+  const total = questions.length;
+  let answered = 0;
+  let score = 0;
+
+  function showResult() {
+    result.querySelector(".result__score")!.textContent = `${score} of ${total} correct`;
+
+    let message: string;
+    if (score === total) {
+      message = "Certified Cat Expert! Kesya allows you to serve her second breakfast.";
+    } else if (score >= total - 1) {
+      message = "Good human! A few more naps and you will be a true expert.";
+    } else {
+      message = "Hmm. Kesya suggests you read the lessons again. After her nap, of course.";
+    }
+    result.querySelector(".result__message")!.textContent = message;
+
+    result.hidden = false;
+    result.querySelector<HTMLElement>("h2")!.focus();
+  }
+
+  questions.forEach((question) => {
+    const correct = Number(question.dataset.correct);
+    const buttons = question.querySelectorAll<HTMLButtonElement>(".answer");
+    const feedback = question.querySelector<HTMLElement>(".feedback")!;
+    const verdict = question.querySelector<HTMLElement>(".feedback__verdict")!;
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const chosen = Number(button.dataset.index);
+        const isCorrect = chosen === correct;
+
+        // Lock this question and highlight the right answer
+        buttons.forEach((b) => {
+          b.disabled = true;
+          if (Number(b.dataset.index) === correct) b.classList.add("is-correct");
+        });
+        if (!isCorrect) button.classList.add("is-wrong");
+
+        verdict.textContent = isCorrect ? "✓ Correct! " : "✗ Not quite. ";
+        feedback.classList.add(isCorrect ? "feedback--correct" : "feedback--wrong");
+        feedback.hidden = false;
+
+        answered += 1;
+        if (isCorrect) score += 1;
+
+        if (answered === total) {
+          showResult();
+        } else {
+          // The clicked button is now disabled, so move keyboard focus to the feedback
+          feedback.focus();
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .questions {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .question h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .answers {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .answer {
+    font: inherit;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--teal);
+    border-radius: var(--radius);
+    background: var(--teal-light);
+    color: var(--brown);
+    cursor: pointer;
+  }
+
+  .answer:hover:not(:disabled) {
+    background: var(--yellow-light);
+    border-color: var(--pink);
+  }
+
+  .answer:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .answer.is-correct,
+  .answer.is-wrong {
+    opacity: 1;
+  }
+
+  .answer.is-correct {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--white);
+  }
+
+  .answer.is-wrong {
+    background: var(--pink-light);
+    border-color: var(--pink);
+    text-decoration: line-through;
+  }
+
+  .feedback {
+    margin: 0.75rem 0 0;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+  }
+
+  .feedback--correct {
+    background: var(--teal-light);
+  }
+
+  .feedback--wrong {
+    background: var(--pink-light);
+  }
+
+  .result {
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--yellow);
+    border-radius: var(--radius);
+  }
+
+  .result h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .result p {
+    margin: 0.5rem 0 0;
+  }
+</style>

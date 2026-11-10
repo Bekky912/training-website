@@ -1,0 +1,52 @@
+---
+// Wrapper for the Markdown lessons in src/pages/lessons/.
+// Astro passes the Markdown frontmatter in as `frontmatter`.
+import BaseLayout from "./BaseLayout.astro";
+import Paw from "../components/Paw.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    lesson: number;
+    description: string;
+    nextHref: string;
+    nextLabel: string;
+  };
+}
+
+const { title, lesson, description, nextHref, nextLabel } = Astro.props.frontmatter;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="card">
+    <div class="prose">
+      <p class="lesson-label">
+        <Paw size={20} color="var(--teal)" /> Lesson {lesson} of 3
+      </p>
+      <h1>{title}</h1>
+      <slot />
+      <nav class="next" aria-label="Next step">
+        <a class="button" href={nextHref}>Next: {nextLabel} →</a>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .lesson-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 0 0.5rem;
+    color: var(--teal);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+  }
+
+  .next {
+    margin-top: 2.5rem;
+    text-align: right;
+  }
+</style>
