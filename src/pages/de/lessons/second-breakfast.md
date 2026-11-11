@@ -10,7 +10,7 @@ tiefe Traurigkeit, denn ein Frühstück reicht für eine Katze deines Formats ei
 
 ![Kesya, eine braune Tigerkatze, frisst Hähnchen aus einer kleinen weißen Schale auf dem Holzboden](../../../assets/kesya/second-breakfast.jpg)
 
-## Schritt 1: Der Blick
+## Schritt 1: Der Bettelblick
 
 Mach die Augen so weit auf wie möglich. Denk an alles Traurige, das je einer Katze passiert ist.
 Dann schau deinen Menschen langsam von unten an. Die meisten Menschen geben nach etwa vier
@@ -18,11 +18,11 @@ Sekunden auf.
 
 ![Kesya liegt auf einem blauen Kissen und schaut mit riesigen runden Augen nach oben](../../../assets/kesya/the-face.jpg)
 
-## Schritt 2: Beweise vernichten
+## Schritt 2: Keine Spuren hinterlassen
 
-Iss deinen Napf komplett leer, damit es aussieht, als hätte ihn heute niemand gefüllt. Dann setz
-dich daneben und starr deinen Menschen an. Nicht blinzeln. Leerer Napf plus trauriger Blick ist
-ein sehr starker Beweis.
+Leck den Napf blitzblank, bis zum letzten Krümel, damit es aussieht, als hätte ihn heute niemand
+gefüllt. Dann setz dich daneben und starr deinen Menschen an. Nicht blinzeln. Blitzblanker Napf
+plus trauriger Blick ist ein sehr starker Beweis.
 
 ## Schritt 3: Frag den *anderen* Menschen
 
@@ -48,3 +48,6 @@ Frühstück serviert.
 
 > **Kesyas Tipp:** Ein leerer Napf ist kein Problem. Er ist eine Chance. Und Menschen sprechen
 > sich nie ab.
+
+**Du bist dran:** Zähl morgen früh deine Menschen. Mehr als einer? Dann weißt du schon, wen du
+nach dem Frühstück besuchst.

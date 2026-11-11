@@ -8,13 +8,13 @@ Es ist ein fauler Sonntagnachmittag und du bist müde. Sehr müde. Aber das Sofa
 Boden ist hart, und dein Mensch sitzt auf deinem Lieblingsplatz. **Wo soll eine Katze da bitte
 schlafen?**
 
-![Nahaufnahme von Kesya, einer braunen Tigerkatze, die mit geschlossenen Augen friedlich im warmen goldenen Sonnenlicht schläft](../../../assets/kesya/sun-nap.jpg)
-
 ## Regel 1: Folge der Sonne
 
 Der beste Schlafplatz ist nie das teure Katzenbett, das dein Mensch gekauft hat. Es ist der kleine
 Sonnenfleck auf dem Boden, dem Sofa oder der Fensterbank. Die Sonne wandert im Lauf des Tages,
 also wandert eine Profi-Schläferin mit. Zwei oder drei Umzüge vor dem Mittagessen sind völlig normal.
+
+![Nahaufnahme von Kesya, einer braunen Tigerkatze, die mit geschlossenen Augen friedlich im warmen goldenen Sonnenlicht schläft](../../../assets/kesya/sun-nap.jpg)
 
 Im Winter ist die Fensterbank der beste Platz im ganzen Haus. Warme Sonne auf dem Fell, kalter
 Schnee draußen und perfekte Sicht auf die Vögel, die *kein* Nickerchen machen. Die Armen.
@@ -43,5 +43,8 @@ Wand, und quetsch dich hinein. Je kleiner die Lücke, desto besser das Nickerche
 Legt dein Mensch dir eine Decke hin, setz dich daneben. Klappt er den Laptop auf, leg dich auf die
 Tastatur. Ein Nickerchen ist nicht nur Erholung, es ist auch ein Statement.
 
-> **Kesyas Tipp:** Der perfekte Schlafplatz ist warm, ein bisschen erhöht und genau dort, wo dein
-> Mensch sitzen wollte. Wenn er auch noch zu klein für dich ist: umso besser.
+> **Kesyas Tipp:** Der perfekte Schlafplatz ist warm, sonnig und genau dort, wo dein Mensch
+> sitzen wollte. Wenn der Platz auch noch zu klein für dich ist: umso besser.
+
+**Du bist dran:** Such heute Nachmittag den wärmsten Sonnenfleck in deiner Wohnung. Sitzt dort
+schon jemand? Perfekt.

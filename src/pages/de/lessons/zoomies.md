@@ -1,14 +1,12 @@
 ---
 layout: ../../../layouts/LessonLayout.astro
 lesson: 3
-description: "Lektion 3: Wie Kesya ihr menschliches Personal vom Bildschirm weglockt und in den Spaß."
+description: "Lektion 3: Wie Kesya ihr menschliches Personal vom Bildschirm weglockt und zum Mitspielen bringt."
 ---
 
 Abend. Plötzlich hast du die Energie von drei Katzen: Zeit für die Zoomies! Du willst rennen,
 springen, etwas jagen. Aber dein Mensch starrt seit einer Stunde mit dem Controller auf den
 Bildschirm und hat dich kein einziges Mal angesehen. **Wie bringst du ihn dazu, mitzufeiern?**
-
-![Kesya sitzt auf einem Holztisch und schaut ein Videospiel im Fernsehen, während ihr Mensch mit einem Controller spielt](../../../assets/kesya/gaming.jpg)
 
 ## Schritt 0: Der Blick
 
@@ -30,6 +28,8 @@ Setz dich direkt zwischen deinen Menschen und den Bildschirm. Schau kurz gemeins
 denkt, du interessierst dich dafür. Dann heb langsam eine Pfote zu den Dingen, die sich auf dem
 Bildschirm bewegen. Dein Mensch wird lachen und den Controller weglegen. Jetzt hast du ihn.
 
+![Kesya sitzt auf einem Holztisch und schaut ein Videospiel im Fernsehen, während ihr Mensch mit einem Controller spielt](../../../assets/kesya/gaming.jpg)
+
 ## Schritt 3: Das Party-Outfit
 
 Jede gute Party braucht ein Kostüm. Eine Plastiktüte ist immer in Mode: Sie raschelt, sie
@@ -50,3 +50,5 @@ An warmen Tagen zieht die Party nach draußen. Gartenpatrouille ist Zoomies mit 
 
 > **Kesyas Tipp:** Starte die Zoomies nie allein. Eine gute Party braucht mindestens einen
 > Menschen, der außer Atem ist.
+
+**Du bist dran:** Setz dich heute Abend vor den Bildschirm und heb eine Pfote.

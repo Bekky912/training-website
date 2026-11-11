@@ -8,8 +8,6 @@ Evening. Suddenly you have the energy of three cats: it is time for the zoomies!
 run, jump and chase something. But your human has been staring at the screen with a controller
 for an hour and has not looked at you once. **How do you get your human to join the party?**
 
-![Kesya sitting on a wooden table, watching a video game on the TV while her human plays with a controller](../../assets/kesya/gaming.jpg)
-
 ## Step 0: The stare
 
 Before the party starts, the human must feel that something is coming. Hide behind the blanket
@@ -29,6 +27,8 @@ also softens the blanket for the nap after the party.
 Sit directly between your human and the screen. Watch the game together for a moment, so they
 think you are interested. Then slowly lift one paw toward the moving things on the screen.
 Your human will laugh and put the controller down. Now you have them.
+
+![Kesya sitting on a wooden table, watching a video game on the TV while her human plays with a controller](../../assets/kesya/gaming.jpg)
 
 ## Step 3: Dress for the party
 
@@ -50,3 +50,5 @@ On warm days the party moves outside. Garden patrol is zoomies with a view.
 
 > **Kesya's Tip:** Never start the zoomies alone. A good party needs at least one human who
 > is out of breath.
+
+**Your turn:** Tonight, sit in front of the screen and lift one paw.

@@ -6,12 +6,12 @@ description: "Mrrp 1: zzzmew ☀️ mew mrrp. Purrrr."
 
 😴😴. 🛋️ ❄️, 🧱 😣, hooman 🪑 Kesya-spot. **Mew… zzzmew 📍❓**
 
-![Close-up of Kesya, a brown tabby cat, sleeping peacefully with her eyes closed in warm golden sunlight](../../../assets/kesya/sun-nap.jpg)
-
 ## Mrrp 1: ☀️ ☀️ ☀️
 
 Mew mew 💸 mrrp-mrrp? Hsss. Mrrrow ☀️ mew, mew ☀️ mew, mew ☀️ mrrp. ☀️ mew-mew, Kesya mew-mew.
 Mrrp, mrrp, mrrp… zzzmew. Mrrrow mew mew nom-nom.
+
+![Close-up of Kesya, a brown tabby cat, sleeping peacefully with her eyes closed in warm golden sunlight](../../../assets/kesya/sun-nap.jpg)
 
 ❄️ mew mew mrrrow. ☀️ prrr, ❄️ mrrow, 🐦 mew mew *zzzmew*. Mew-mew 🐦. Mrrp.
 
@@ -35,4 +35,6 @@ Mrrp, mrrp, mrrp… zzzmew. Mrrrow mew mew nom-nom.
 
 Hooman 🧺 mew? Kesya mew-mew 🧺. Hooman 💻 mrrp? Kesya ⌨️ zzzmew. Mrrrow. Mew mew. Purr.
 
-> **Kesya's Mrrp:** ☀️ + ⬆️ + hooman 🪑 = zzzmew prrrrrrr. Mew 📦 mew-mew? MEOW!
+> **Kesya's Mrrp:** ☀️ + hooman 🪑 = zzzmew prrrrrrr. Mew 📦 mew-mew? MEOW!
+
+**Mew-turn:** 🌤️ ☀️📍❓ 👀… hooman 🪑? Prrrfect. 😼

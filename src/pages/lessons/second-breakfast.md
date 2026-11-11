@@ -17,10 +17,11 @@ look at your human, slowly, from below. Most humans give up after about four sec
 
 ![Kesya lying on a blue cushion, looking up with huge round eyes](../../assets/kesya/the-face.jpg)
 
-## Step 2: Destroy the evidence
+## Step 2: Leave no evidence
 
-Finish your bowl completely, so it looks like nobody filled it today. Then sit next to it and
-stare at your human. Do not blink. A clean bowl plus a sad face is very strong evidence.
+Lick the bowl clean, down to the very last crumb, so it looks like nobody filled it today. Then
+sit next to it and stare at your human. Do not blink. A spotless bowl plus a sad face is very
+strong evidence.
 
 ## Step 3: Ask the *other* human
 
@@ -44,3 +45,6 @@ breakfast served.
 
 > **Kesya's Tip:** An empty bowl is not a problem. It is an opportunity. And humans never
 > compare notes.
+
+**Your turn:** Tomorrow morning, count your humans. More than one? Then you already know whom to
+visit after breakfast.

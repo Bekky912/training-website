@@ -36,7 +36,7 @@ am Ende. Die Seitentexte sind mit Humor geschrieben und in drei Sprachen verfüg
 | 2 | Operation Second Breakfast | Wie man den Menschen überzeugt, dass das erste Frühstück nie stattgefunden hat. Futterpuzzle als „Arbeit“ | „The face“, Futterteller, Futterturm, umgekipptes Futterpuzzle |
 | 3 | The Zoomie Party | Menschliche Diener vom Bildschirm weglocken und zum Mitspielen bringen | Gaming, „The stare“, Treteln, Plastiksack, Garten |
 
-Jede Lektion: ca. 150–300 Wörter (2–3 Minuten Lesezeit), mehrere Fotos als „Beweise“ für die Tipps, am Ende „Kesya's Tip“ als hervorgehobener Merksatz.
+Jede Lektion: ca. 150–300 Wörter (2–3 Minuten Lesezeit), mehrere Fotos als „Beweise“ für die Tipps, am Ende „Kesya's Tip“ als hervorgehobener Merksatz, danach ein „Your turn“-Satz, der zum Ausprobieren im eigenen Alltag einlädt.
 
 Jede Lektion beginnt mit einer kurzen Alltagsszene (2–4 Sätze), die nur das Problem zeigt, ohne die Lösung vorwegzunehmen, und mit einer Frage endet. Erst danach folgen Regeln oder Schritte („Beispiel vor Theorie“).
 
@@ -45,7 +45,8 @@ Jede Lektion beginnt mit einer kurzen Alltagsszene (2–4 Sätze), die nur das P
 - 3 Multiple-Choice-Fragen, je eine pro Lektion, mit je 3 Antwortmöglichkeiten und genau einer richtigen Antwort.
 - 1 Zuordnungsfrage „Help Kesya sort her photo album!“: 3 Fotos (Napping, Eating, Zoomies) per Drag & Drop den Aktivitäten zuordnen, dann „Check“. 1 Punkt, wenn alle 3 richtig liegen. Alternative ohne Ziehen: Foto antippen/Enter, dann Aktivität antippen/Enter.
 - Nach jeder Antwort: Feedback „Correct!“ / „Not quite“ plus ein Satz Erklärung.
-- Am Ende: Punktzahl und eine von drei Bewertungen mit Foto (alles richtig: Thron; einer falsch: Glamour; sonst: grimmig).
+- Am Ende: Punktzahl und eine von drei Bewertungen mit Foto (alles richtig: Thron; einer falsch: Glamour; sonst: grimmig) sowie ein Link zurück zu Lektion 1.
+- Die Multiple-Choice-Fragen beschreiben eine kurze Situation, in der man eine Entscheidung trifft (nicht nur Fakten abfragen). Die Erklärung sagt, warum die Antwort funktioniert.
 
 ## 5. Seitenanforderungen
 
@@ -109,3 +110,4 @@ Auf jeder Seite: dieselbe Kopfzeile mit Navigation (Home, Lessons 1–3, Quiz) u
 - Foto 1 (Gaming) wird unverändert verwendet. Die abgebildete Person ist mit der Veröffentlichung einverstanden.
 - Farbpalette: ursprünglich Pink, Türkis, Sonnengelb. Am 2026-11-10 nach Feedback geändert zu „dark & gold“ (nahezu Schwarz, Gold, Creme) im Stil des OnlyPaws-Posters. Das Poster selbst ist auf der Startseite zu sehen (nach Feedback gewünscht).
 - Lernprinzip „Beispiel vor Theorie“ (2026-11-11): Ergebnis des Subagent-Reviews (siehe `docs/AGENT_REVIEW.md`). Jede Lektion startet mit einer Problemszene samt Frage statt mit einer Behauptung oder Definition. Die Szene verrät die Lösung nicht.
+- Aufbau nach 4MAT (2026-11-11): Szene mit Frage (Why), Regeln mit Fotos (What), Quiz mit Entscheidungsfragen (How), „Your turn“-Satz nach dem Tipp (What if). Ergebnis des zweiten Reviews mit dem überarbeiteten `learning-reviewer`.

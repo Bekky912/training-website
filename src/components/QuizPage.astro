@@ -4,7 +4,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Paw from "./Paw.astro";
-import { splitPath } from "../lib/url";
+import { splitPath, localized, lessonPaths } from "../lib/url";
 import { ui, langs } from "../i18n/ui";
 
 import sunNap from "../assets/kesya/sun-nap.jpg";
@@ -147,6 +147,7 @@ const scriptTexts = {
         <Image class="result__photo" data-tier="top" src={throne} alt={alt.top} width={500} hidden />
         <Image class="result__photo" data-tier="good" src={glamour} alt={alt.good} width={500} hidden />
         <Image class="result__photo" data-tier="low" src={grumpy} alt={alt.low} width={500} hidden />
+        <p class="result__again"><a href={localized(lessonPaths[0], lang)}>{t.again}</a></p>
       </section>
     </div>
   </div>
@@ -609,5 +610,15 @@ const scriptTexts = {
 
   .result :global(.result__photo[hidden]) {
     display: none;
+  }
+
+  /* Dark link on the gold result box, with a dark focus ring so it stays visible */
+  .result__again a {
+    color: var(--on-gold);
+    font-weight: 700;
+  }
+
+  .result__again a:focus-visible {
+    outline-color: var(--on-gold);
   }
 </style>

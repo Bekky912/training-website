@@ -54,7 +54,7 @@ const en = {
     // src/components/QuizPage.astro points to the right answer by its position.
     questions: [
       {
-        question: "Where is the best place for a nap?",
+        question: "It is 3 pm. The sun has moved off your cat bed and onto a small spot on the sofa. Where do you nap now?",
         answers: [
           "In the expensive cat bed your human bought",
           "In the small square of sunshine, wherever it is right now",
@@ -79,7 +79,7 @@ const en = {
           "Wait politely until the game is over",
         ],
         explanation:
-          "First become part of the screen, then run. A good party needs at least one human who is out of breath.",
+          "First become part of the screen: your human laughs and puts the controller down. Then run, and they will follow you. A good party needs at least one human who is out of breath.",
       },
     ],
     sort: {
@@ -100,6 +100,7 @@ const en = {
     correct: "✓ Correct! ",
     wrong: "✗ Not quite. ",
     score: "{score} of {total} correct",
+    again: "Back to lesson 1",
     results: {
       top: "Certified Cat Expert! You may approach the throne and serve second breakfast.",
       good: "Good human! A few more naps and you will be a true expert.",
@@ -145,7 +146,7 @@ const de: UI = {
     lessons: [
       { title: "Die Kunst des Nickerchens", teaser: "Finde den besten Sonnenplatz und meistere die perfekte Schlafposition." },
       { title: "Operation Zweites Frühstück", teaser: "Überzeuge deinen Menschen, dass es das erste Frühstück nie gab." },
-      { title: "Die Zoomie-Party", teaser: "Locke dein menschliches Personal vom Bildschirm weg und in den Spaß." },
+      { title: "Die Zoomie-Party", teaser: "Locke dein menschliches Personal vom Bildschirm weg und bring es zum Mitspielen." },
     ],
     quizCta: "Glaubst du, du hast genug gelernt?",
     quizButton: "Zum Quiz",
@@ -159,7 +160,7 @@ const de: UI = {
     intro: "Vier Fragen zu allem, was du gelernt hast. Kesya schaut zu.",
     questions: [
       {
-        question: "Wo ist der beste Platz für ein Nickerchen?",
+        question: "Es ist 15 Uhr. Die Sonne ist von deinem Katzenbett auf einen kleinen Fleck auf dem Sofa gewandert. Wo machst du jetzt dein Nickerchen?",
         answers: [
           "Im teuren Katzenbett, das dein Mensch gekauft hat",
           "Im kleinen Sonnenfleck, wo auch immer er gerade ist",
@@ -184,7 +185,7 @@ const de: UI = {
           "Höflich warten, bis das Spiel vorbei ist",
         ],
         explanation:
-          "Erst Teil des Bildschirms werden, dann rennen. Eine gute Party braucht mindestens einen Menschen, der außer Atem ist.",
+          "Erst Teil des Bildschirms werden: Dein Mensch lacht und legt den Controller weg. Dann losrennen, und er folgt dir. Eine gute Party braucht mindestens einen Menschen, der außer Atem ist.",
       },
     ],
     sort: {
@@ -205,6 +206,7 @@ const de: UI = {
     correct: "✓ Richtig! ",
     wrong: "✗ Nicht ganz. ",
     score: "{score} von {total} richtig",
+    again: "Zurück zu Lektion 1",
     results: {
       top: "Zertifiziertes Katzen-Genie! Du darfst dich dem Thron nähern und das zweite Frühstück servieren.",
       good: "Guter Mensch! Noch ein paar Nickerchen, dann bist du ein echter Profi.",
@@ -261,7 +263,7 @@ const cat: UI = {
     intro: "Mew mew mrrp mrrp. Kesya 👀.",
     questions: [
       {
-        question: "Zzzmew… mew mrrp?",
+        question: "⏰ 3. ☀️ 🛏️ → 🛋️. Zzzmew… mew mrrp?",
         answers: ["Mew mew 💸 mrrp-mrrp", "Prrrr ☀️ mew mew mrrrow", "Hooman meow? Hsss."],
         explanation: "☀️ mrrrow! Mew ☀️ mew-mew, Kesya mew-mew. Purrrr.",
       },
@@ -273,7 +275,7 @@ const cat: UI = {
       {
         question: "Hooman 🎮. MRRR-ZOOM mew?",
         answers: ["Mew 🎮 🐾 … MRRR-ZOOM!", "MRRR-ZOOM mew-mew mrrp 🍳", "Mew… mew… mew… zzz"],
-        explanation: "🐾 🎮, MRRR-ZOOM! Hooman huff-huff-huff. Purrrr.",
+        explanation: "🐾 📺 → hooman 😂, 🎮 ⬇️. MRRR-ZOOM! Hooman huff-huff-huff. Purrrr.",
       },
     ],
     sort: {
@@ -293,6 +295,7 @@ const cat: UI = {
     correct: "✓ Prrrrrr! ",
     wrong: "✗ HSSS. ",
     score: "{score} mew {total} prrr",
+    again: "← Mrrp 1",
     results: {
       top: "MEOW MEOW MEOW! 👑 Mrrp mrrp nom-nom-meow #2. Purrrrrrrr.",
       good: "Mew mew hooman! Zzzmew zzzmew… mrrp mrrow.",

@@ -8,13 +8,13 @@ It is a lazy Sunday afternoon and you are tired. Very tired. But the sofa is col
 hard, and your human is sitting in your favourite spot. **Where on earth is a cat supposed to
 sleep?**
 
-![Close-up of Kesya, a brown tabby cat, sleeping peacefully with her eyes closed in warm golden sunlight](../../assets/kesya/sun-nap.jpg)
-
 ## Rule 1: Follow the sun
 
 The best nap spot is never the expensive cat bed your human bought. It is the small square of
 sunshine on the floor, the sofa or the window sill. Sunshine moves during the day, so a
 professional napper moves with it. Two or three relocations before lunch are completely normal.
+
+![Close-up of Kesya, a brown tabby cat, sleeping peacefully with her eyes closed in warm golden sunlight](../../assets/kesya/sun-nap.jpg)
 
 In winter the window sill is the best seat in the house. Warm sun on the fur, cold snow outside,
 and a perfect view of the birds who are *not* napping. Poor things.
@@ -43,5 +43,8 @@ wall, and squeeze in. The smaller the gap, the better the nap.
 If your human puts a blanket down for you, sit next to it. If they open the laptop, lie on the
 keyboard. A nap is not only rest; it is also a statement.
 
-> **Kesya's Tip:** The perfect nap spot is warm, a little high up and exactly where your human
-> wanted to sit. If it is also too small for you, even better.
+> **Kesya's Tip:** The perfect nap spot is warm, sunny and exactly where your human wanted to
+> sit. If it is also too small for you, even better.
+
+**Your turn:** This afternoon, find the warmest square of sun in your home. Is someone sitting
+there? Perfect.

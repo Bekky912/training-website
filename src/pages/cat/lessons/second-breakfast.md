@@ -33,3 +33,5 @@ Hooman mrrp 🧩? Mew mew 😾. 🧩 = 🍗 + 🏃. 🐾 mrrp, 🍗 mew, 🐾 mr
 ![Kesya calmly eating kibble from the floor next to a tipped-over food puzzle, with dry food scattered everywhere](../../../assets/kesya/puzzle-hack.jpg)
 
 > **Kesya's Mrrp:** 🥣 ≠ 😿. 🥣 = 🍗🍗. Hooman #1 + hooman #2 = mew mew mrrp. Purrrrr.
+
+**Mew-turn:** 🌅 hooman 1… 2…? 🍗🍗 😼

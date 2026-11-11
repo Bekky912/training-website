@@ -6,8 +6,6 @@ description: "Mrrp 3: hooman 🎮, Kesya MRRR-ZOOM!"
 
 🌙 Kesya ⚡⚡⚡ MRRR-ZOOM! Hooman 🎮📺… 👀 ❌. **Hooman 🎉❓**
 
-![Kesya sitting on a wooden table, watching a video game on the TV while her human plays with a controller](../../../assets/kesya/gaming.jpg)
-
 ## Mrrp 0: 👁️👁️
 
 🎉 mew? Hooman mew mew… mrrp. Kesya 🛏️ mew 👁️👁️. Mew. Mew. Mew. Hooman: „mew?!“ Prrrr.
@@ -24,6 +22,8 @@ Mew-mew mrrp 🏋️. 🐾 mrrp, 🐾 mrrp, 🐾 mrrp, 🐾 mrrp 🛏️. Mrrrrr
 
 Kesya mew hooman 📺. Mew 👀 📺 mew-mew, hooman mew mew? 🐾 ⬆️ … 📺. Hooman 😂, 🎮 ⬇️.
 MEW-MEW-MEW.
+
+![Kesya sitting on a wooden table, watching a video game on the TV while her human plays with a controller](../../../assets/kesya/gaming.jpg)
 
 ## Mrrp 3: 🛍️ 👗
 
@@ -43,3 +43,5 @@ MEW-MEW-MEW.
 ![Kesya standing in a green garden next to a wooden bench, looking back over her shoulder](../../../assets/kesya/garden-patrol.jpg)
 
 > **Kesya's Mrrp:** MRRR-ZOOM 🐈 ≠ 🎉. MRRR-ZOOM 🐈 + hooman 🥵 = 🎉🎉🎉. MEOW!
+
+**Mew-turn:** 🌙 📺 → 🐈 🐾⬆️. MRRR-ZOOM!
