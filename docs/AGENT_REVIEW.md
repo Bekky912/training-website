@@ -53,6 +53,9 @@ Titel und „Weiter“-Links aus `ui.ts`, `fill()` nur noch einmal in `src/lib/f
 Offen: Lern-Befunde 2–3.
 
 ## Reflection
+- **Unabhängigkeit ist wichtig:** Die Agents müssen unabhängig voneinander arbeiten können,
+  damit sie sich nicht gegenseitig behindern. Jeder hat seinen eigenen Auftrag und eigenen
+  Kontext, darf nur lesen und kann deshalb parallel zum anderen laufen.
 - **Spezialisierung hat geholfen:** Die zwei getrennten Blickwinkel haben unterschiedliche
   Probleme gefunden, fast ohne Doppelungen. Durch eine eigene Prüfregel im Lern-Reviewer
   wurde mein Lernprinzip systematisch gegen alle Lektionen geprüft.
