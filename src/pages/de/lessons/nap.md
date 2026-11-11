@@ -7,8 +7,9 @@ nextHref: /lessons/second-breakfast
 nextLabel: Operation Zweites Frühstück
 ---
 
-Eine Katze schläft bis zu sechzehn Stunden am Tag. Menschen nennen das faul. Ich nenne es
-**Training**. Jedes Nickerchen ist Übung für das nächste, und ich bin sehr, sehr gut trainiert.
+Es ist ein fauler Sonntagnachmittag und du bist müde. Sehr müde. Aber das Sofa ist kalt, der
+Boden ist hart, und dein Mensch sitzt auf deinem Lieblingsplatz. **Wo soll eine Katze da bitte
+schlafen?**
 
 ![Nahaufnahme von Kesya, einer braunen Tigerkatze, die mit geschlossenen Augen friedlich im warmen goldenen Sonnenlicht schläft](../../../assets/kesya/sun-nap.jpg)
 

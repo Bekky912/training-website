@@ -7,9 +7,9 @@ nextHref: /quiz
 nextLabel: Take the quiz
 ---
 
-Zoomies are sudden bursts of running through the home at full speed, usually late in the
-evening, for no reason a human can understand. They are the best part of the day. But a party
-is better with guests, so you have to engage your human servants.
+Evening. Suddenly you have the energy of three cats: it is time for the zoomies! You want to
+run, jump and chase something. But your human has been staring at the screen with a controller
+for an hour and has not looked at you once. **How do you get your human to join the party?**
 
 ![Kesya sitting on a wooden table, watching a video game on the TV while her human plays with a controller](../../assets/kesya/gaming.jpg)
 

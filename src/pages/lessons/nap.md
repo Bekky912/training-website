@@ -7,8 +7,9 @@ nextHref: /lessons/second-breakfast
 nextLabel: Operation Second Breakfast
 ---
 
-A cat sleeps up to sixteen hours a day. Humans call this lazy. I call it **training**. Every
-nap is practice for the next nap, and I am very, very well trained.
+It is a lazy Sunday afternoon and you are tired. Very tired. But the sofa is cold, the floor is
+hard, and your human is sitting in your favourite spot. **Where on earth is a cat supposed to
+sleep?**
 
 ![Close-up of Kesya, a brown tabby cat, sleeping peacefully with her eyes closed in warm golden sunlight](../../assets/kesya/sun-nap.jpg)
 

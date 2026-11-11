@@ -7,8 +7,7 @@ nextHref: /lessons/zoomies
 nextLabel: MRRR-ZOOM Mrrp-mrrp
 ---
 
-Mew mew mrrp: 🍗 mew mew-mew-mew. Mrrrow Kesya nom-nom **MEW-MEW**. Hooman mew 🍗 #1…
-mew? Mew mew. Prrrr.
+🥣🍗 nom-nom… 🥣 ∅. 😿. **Nom-nom #2? Mew… ❓**
 
 ![Kesya, a brown tabby cat, eating chicken from a small white bowl on a wooden floor](../../../assets/kesya/second-breakfast.jpg)
 

@@ -7,8 +7,9 @@ nextHref: /lessons/zoomies
 nextLabel: Die Zoomie-Party
 ---
 
-Jede Katze kennt eine einfache Wahrheit: Das Frühstück ist die wichtigste Mahlzeit des Tages.
-Deshalb esse ich es **zweimal**. Der Trick: Dein Mensch muss glauben, dass es das erste nie gab.
+Das Frühstück war köstlich. Leider ist es weg. Du starrst in den leeren Napf und spürst eine
+tiefe Traurigkeit, denn ein Frühstück reicht für eine Katze deines Formats eindeutig nicht.
+**Was kannst du tun, damit du nicht vor dem Mittagessen verhungerst?**
 
 ![Kesya, eine braune Tigerkatze, frisst Hähnchen aus einer kleinen weißen Schale auf dem Holzboden](../../../assets/kesya/second-breakfast.jpg)
 

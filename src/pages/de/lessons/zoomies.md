@@ -7,9 +7,9 @@ nextHref: /quiz
 nextLabel: Zum Quiz
 ---
 
-Zoomies sind plötzliche Sprints in vollem Tempo durch die Wohnung, meistens spät am Abend und
-aus einem Grund, den kein Mensch versteht. Sie sind der beste Teil des Tages. Aber eine Party ist
-schöner mit Gästen, also musst du dein menschliches Personal einspannen.
+Abend. Plötzlich hast du die Energie von drei Katzen: Zeit für die Zoomies! Du willst rennen,
+springen, etwas jagen. Aber dein Mensch starrt seit einer Stunde mit dem Controller auf den
+Bildschirm und hat dich kein einziges Mal angesehen. **Wie bringst du ihn dazu, mitzufeiern?**
 
 ![Kesya sitzt auf einem Holztisch und schaut ein Videospiel im Fernsehen, während ihr Mensch mit einem Controller spielt](../../../assets/kesya/gaming.jpg)
 

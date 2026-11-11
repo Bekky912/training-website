@@ -7,8 +7,9 @@ nextHref: /lessons/zoomies
 nextLabel: The Zoomie Party
 ---
 
-Every cat knows a simple truth: breakfast is the most important meal of the day. That is why
-I eat it **twice**. The trick is to make your human believe that the first one never happened.
+Breakfast was delicious. Unfortunately, it is gone. You stare into the empty bowl and feel a
+deep sadness, because one breakfast is clearly not enough for a cat of your talent. **What can
+you do so you don't starve before lunch?**
 
 ![Kesya, a brown tabby cat, eating chicken from a small white bowl on a wooden floor](../../assets/kesya/second-breakfast.jpg)
 

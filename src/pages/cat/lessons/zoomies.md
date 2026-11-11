@@ -7,7 +7,7 @@ nextHref: /quiz
 nextLabel: Mew? Mew!
 ---
 
-MRRR-ZOOM = 🐈💨💨💨, 🌙 mew mew, mew mew *mew?* Mrrrow mew mew mrrp. Mew 🎉 + hooman = MRRP!
+🌙 Kesya ⚡⚡⚡ MRRR-ZOOM! Hooman 🎮📺… 👀 ❌. **Hooman 🎉❓**
 
 ![Kesya sitting on a wooden table, watching a video game on the TV while her human plays with a controller](../../../assets/kesya/gaming.jpg)
 

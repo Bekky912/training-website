@@ -7,8 +7,7 @@ nextHref: /lessons/second-breakfast
 nextLabel: Nom-Nom-Meow Mrrow
 ---
 
-Mew mrrp mew 16 zzzmew. Hooman: „mew mew?“ Kesya: **MRRROW**. Zzzmew mew zzzmew, mrrp mew
-mew-mew-mew zzzmew. Purrrrrr.
+😴😴. 🛋️ ❄️, 🧱 😣, hooman 🪑 Kesya-spot. **Mew… zzzmew 📍❓**
 
 ![Close-up of Kesya, a brown tabby cat, sleeping peacefully with her eyes closed in warm golden sunlight](../../../assets/kesya/sun-nap.jpg)
 

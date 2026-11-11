@@ -38,6 +38,8 @@ am Ende. Die Seitentexte sind mit Humor geschrieben und in drei Sprachen verfüg
 
 Jede Lektion: ca. 150–300 Wörter (2–3 Minuten Lesezeit), mehrere Fotos als „Beweise“ für die Tipps, am Ende „Kesya's Tip“ als hervorgehobener Merksatz.
 
+Jede Lektion beginnt mit einer kurzen Alltagsszene (2–4 Sätze), die nur das Problem zeigt, ohne die Lösung vorwegzunehmen, und mit einer Frage endet. Erst danach folgen Regeln oder Schritte („Beispiel vor Theorie“).
+
 ### Quiz
 
 - 3 Multiple-Choice-Fragen, je eine pro Lektion, mit je 3 Antwortmöglichkeiten und genau einer richtigen Antwort.
@@ -100,8 +102,10 @@ Auf jeder Seite: dieselbe Kopfzeile mit Navigation (Home, Lessons 1–3, Quiz) u
 12. Das Repository enthält weder `node_modules/` noch `dist/` noch `.env`, aber `package-lock.json`.
 13. Die Drag-&-Drop-Frage ist mit Maus (Ziehen), Finger (Ziehen oder Antippen) und Tastatur (Enter/Leertaste) lösbar. „Check“ ist erst aktiv, wenn alle 3 Fotos zugeordnet sind. Danach ist jede Zuordnung mit ✓/✗ markiert und gesperrt.
 14. Alle 15 Seiten (5 Seiten × 3 Sprachen) werden gebaut. Auf jeder Seite führt der Sprachumschalter zur selben Seite in der anderen Sprache, die aktuelle Sprache ist markiert, und `<html lang>` passt zur Sprache (`en`, `de`, `en-x-cat`).
+15. In jeder Lektion steht vor der ersten Zwischenüberschrift eine Problemszene mit abschließender Frage. Die Szene nennt keine der Regeln oder Schritte der Lektion.
 
 ## 9. Entscheidungen
 
 - Foto 1 (Gaming) wird unverändert verwendet. Die abgebildete Person ist mit der Veröffentlichung einverstanden.
 - Farbpalette: ursprünglich Pink, Türkis, Sonnengelb. Am 2026-11-10 nach Feedback geändert zu „dark & gold“ (nahezu Schwarz, Gold, Creme) im Stil des OnlyPaws-Posters. Das Poster selbst ist auf der Startseite zu sehen (nach Feedback gewünscht).
+- Lernprinzip „Beispiel vor Theorie“ (2026-11-11): Ergebnis des Subagent-Reviews (siehe `docs/AGENT_REVIEW.md`). Jede Lektion startet mit einer Problemszene samt Frage statt mit einer Behauptung oder Definition. Die Szene verrät die Lösung nicht.
