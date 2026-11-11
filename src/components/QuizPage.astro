@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Paw from "./Paw.astro";
 import { splitPath } from "../lib/url";
-import { ui } from "../i18n/ui";
+import { ui, langs } from "../i18n/ui";
 
 import sunNap from "../assets/kesya/sun-nap.jpg";
 import puzzleHack from "../assets/kesya/puzzle-hack.jpg";
@@ -17,29 +17,27 @@ import grumpy from "../assets/kesya/grumpy-bandana.jpg";
 const { lang } = splitPath(Astro.url.pathname);
 const t = ui[lang].quiz;
 
-// Index (0, 1, 2) of the right answer per question – the same in every language
+// Index (0, 1, 2) of the right answer per question – the same in every language.
+// The answer order in src/i18n/ui.ts must match this list.
 const correctAnswers = [1, 2, 0];
 
-// Photo descriptions stay readable for humans: Cat uses the English ones
-const alts = {
-  en: {
-    zoomies: "Kesya with her head inside a blue plastic bag",
-    napping: "Kesya with closed eyes in warm sunlight",
-    eating: "Kesya next to a tipped-over food puzzle with kibble everywhere",
-    top: "Kesya lying on her own throne, a cardboard lounge with the letters KESYA",
-    good: "Kesya posing elegantly on a shiny blue blanket",
-    low: "Kesya sitting in the grass with a red bandana, looking very grumpy",
-  },
-  de: {
-    zoomies: "Kesya mit dem Kopf in einer blauen Plastiktüte",
-    napping: "Kesya mit geschlossenen Augen im warmen Sonnenlicht",
-    eating: "Kesya neben einem umgekippten Futterpuzzle, überall liegt Trockenfutter",
-    top: "Kesya liegt auf ihrem eigenen Thron, einer Pappliege mit den Buchstaben KESYA",
-    good: "Kesya posiert elegant auf einer glänzenden blauen Decke",
-    low: "Kesya sitzt mit rotem Halstuch im Gras und schaut sehr grimmig",
-  },
-};
-const alt = lang === "de" ? alts.de : alts.en;
+// Stop the build if the questions in ui.ts and correctAnswers no longer fit together,
+// so a wrong score can never be published by accident.
+for (const l of langs) {
+  const questions = ui[l].quiz.questions;
+  if (questions.length !== correctAnswers.length) {
+    throw new Error(
+      `Quiz (${l}): ${questions.length} questions in ui.ts, but ${correctAnswers.length} entries in correctAnswers.`,
+    );
+  }
+  questions.forEach((q, i) => {
+    if (correctAnswers[i] >= q.answers.length) {
+      throw new Error(`Quiz (${l}): question ${i + 1} has no answer number ${correctAnswers[i] + 1}.`);
+    }
+  });
+}
+
+const alt = t.alts;
 
 // Drag & drop question: photos in the tray (deliberately not in slot order) and the activity slots.
 const photos = [
@@ -155,10 +153,10 @@ const scriptTexts = {
 </BaseLayout>
 
 <script>
+  import { fill } from "../lib/fill";
+
   // Texts in the page's language, written into the HTML by Astro (see `scriptTexts` above)
   const texts = JSON.parse(document.querySelector<HTMLElement>("[data-texts]")!.dataset.texts!);
-  const fill = (text: string, values: Record<string, string | number>) =>
-    text.replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? ""));
 
   const questions = document.querySelectorAll<HTMLElement>(".question");
   const result = document.querySelector<HTMLElement>(".result")!;

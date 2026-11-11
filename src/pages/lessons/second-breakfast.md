@@ -1,10 +1,7 @@
 ---
 layout: ../../layouts/LessonLayout.astro
-title: Operation Second Breakfast
 lesson: 2
 description: "Lesson 2: how Kesya convinces her humans that the first breakfast never happened."
-nextHref: /lessons/zoomies
-nextLabel: The Zoomie Party
 ---
 
 Breakfast was delicious. Unfortunately, it is gone. You stare into the empty bowl and feel a

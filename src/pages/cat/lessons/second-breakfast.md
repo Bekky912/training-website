@@ -1,10 +1,7 @@
 ---
 layout: ../../../layouts/LessonLayout.astro
-title: Nom-Nom-Meow Mrrow
 lesson: 2
 description: "Mrrp 2: nom-nom-meow #2. Mew? MEOW."
-nextHref: /lessons/zoomies
-nextLabel: MRRR-ZOOM Mrrp-mrrp
 ---
 
 🥣🍗 nom-nom… 🥣 ∅. 😿. **Nom-nom #2? Mew… ❓**

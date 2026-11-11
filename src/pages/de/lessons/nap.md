@@ -1,10 +1,7 @@
 ---
 layout: ../../../layouts/LessonLayout.astro
-title: Die Kunst des Nickerchens
 lesson: 1
 description: "Lektion 1: Wie Kesya den perfekten Sonnenplatz und die perfekte Schlafposition findet."
-nextHref: /lessons/second-breakfast
-nextLabel: Operation Zweites Frühstück
 ---
 
 Es ist ein fauler Sonntagnachmittag und du bist müde. Sehr müde. Aber das Sofa ist kalt, der

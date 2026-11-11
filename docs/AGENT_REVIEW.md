@@ -47,7 +47,10 @@ Sprachen und entspricht meinem eigenen Lernprinzip.
   beantwortet. Die Regel im `learning-reviewer` wurde entsprechend geschärft.
 - Ersetzt statt angehängt, damit jede Lektion unter 300 Wörtern bleibt.
 
-Nicht umgesetzt (bewusst nur eine Änderung): Code-Befunde 1–3, Lern-Befunde 2–3.
+Danach in einem eigenen Commit umgesetzt: Code-Befunde 1–3 (Build-Prüfung für
+`correctAnswers`, Quiz-Alt-Texte in `ui.ts`, Lektionsreihenfolge nur noch in `lessonPaths`,
+Titel und „Weiter“-Links aus `ui.ts`, `fill()` nur noch einmal in `src/lib/fill.ts`).
+Offen: Lern-Befunde 2–3.
 
 ## Reflection
 - **Spezialisierung hat geholfen:** Die zwei getrennten Blickwinkel haben unterschiedliche

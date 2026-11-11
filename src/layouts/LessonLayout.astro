@@ -1,31 +1,37 @@
 ---
 // Wrapper for the Markdown lessons in src/pages/lessons/, src/pages/de/lessons/ and src/pages/cat/lessons/.
 // Astro passes the Markdown frontmatter in as `frontmatter`.
+// Title, lesson count and the "next" link are looked up from `lesson`, so each lesson file
+// only needs its number and description.
 import BaseLayout from "./BaseLayout.astro";
 import Paw from "../components/Paw.astro";
-import { localized, splitPath } from "../lib/url";
+import { localized, splitPath, lessonPaths } from "../lib/url";
 import { ui } from "../i18n/ui";
 
 interface Props {
   frontmatter: {
-    title: string;
-    lesson: number;
+    lesson: number; // 1, 2 or 3
     description: string;
-    nextHref: string; // language-neutral, e.g. "/quiz"
-    nextLabel: string;
   };
 }
 
-const { title, lesson, description, nextHref, nextLabel } = Astro.props.frontmatter;
+const { lesson, description } = Astro.props.frontmatter;
 const { lang } = splitPath(Astro.url.pathname);
 const t = ui[lang];
+
+const title = t.home.lessons[lesson - 1].title;
+
+// After the last lesson comes the quiz
+const isLast = lesson === lessonPaths.length;
+const nextHref = isLast ? "/quiz" : lessonPaths[lesson];
+const nextLabel = isLast ? t.home.quizButton : t.home.lessons[lesson].title;
 ---
 
 <BaseLayout title={title} description={description}>
   <article class="card">
     <div class="prose">
       <p class="lesson-label">
-        <Paw size={20} color="var(--gold)" /> {t.lessonLabel(lesson)}
+        <Paw size={20} color="var(--gold)" /> {t.lessonLabel(lesson, lessonPaths.length)}
       </p>
       <h1>{title}</h1>
       <slot />

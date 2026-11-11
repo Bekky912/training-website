@@ -1,10 +1,7 @@
 ---
 layout: ../../../layouts/LessonLayout.astro
-title: MRRR-ZOOM Mrrp-mrrp
 lesson: 3
 description: "Mrrp 3: hooman 🎮, Kesya MRRR-ZOOM!"
-nextHref: /quiz
-nextLabel: Mew? Mew!
 ---
 
 🌙 Kesya ⚡⚡⚡ MRRR-ZOOM! Hooman 🎮📺… 👀 ❌. **Hooman 🎉❓**

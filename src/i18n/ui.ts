@@ -23,7 +23,7 @@ const en = {
   languageSwitch: "Choose language",
   footer: "Wisdom by Kesya · Typing by her human servant",
   defaultDescription: "Kesya the cat shares her wisdom: napping, second breakfast and zoomies.",
-  lessonLabel: (n: number) => `Lesson ${n} of 3`,
+  lessonLabel: (n: number, total: number) => `Lesson ${n} of ${total}`,
   next: "Next",
   nextStep: "Next step",
   home: {
@@ -50,6 +50,8 @@ const en = {
     description: "Test what you learned from Kesya in four quick questions.",
     heading: "Kesya's Quiz",
     intro: "Four questions about everything you learned. Kesya is watching.",
+    // Keep the answer order the same in every language: correctAnswers in
+    // src/components/QuizPage.astro points to the right answer by its position.
     questions: [
       {
         question: "Where is the best place for a nap?",
@@ -103,6 +105,14 @@ const en = {
       good: "Good human! A few more naps and you will be a true expert.",
       low: "Kesya is not angry. Just disappointed. Read the lessons again, after her nap.",
     },
+    alts: {
+      zoomies: "Kesya with her head inside a blue plastic bag",
+      napping: "Kesya with closed eyes in warm sunlight",
+      eating: "Kesya next to a tipped-over food puzzle with kibble everywhere",
+      top: "Kesya lying on her own throne, a cardboard lounge with the letters KESYA",
+      good: "Kesya posing elegantly on a shiny blue blanket",
+      low: "Kesya sitting in the grass with a red bandana, looking very grumpy",
+    },
   },
 };
 
@@ -120,7 +130,7 @@ const de: UI = {
   languageSwitch: "Sprache wählen",
   footer: "Weisheiten von Kesya · Getippt von ihrem menschlichen Personal",
   defaultDescription: "Katze Kesya teilt ihre Weisheiten: Nickerchen, zweites Frühstück und Zoomies.",
-  lessonLabel: (n: number) => `Lektion ${n} von 3`,
+  lessonLabel: (n: number, total: number) => `Lektion ${n} von ${total}`,
   next: "Weiter",
   nextStep: "Nächster Schritt",
   home: {
@@ -200,6 +210,14 @@ const de: UI = {
       good: "Guter Mensch! Noch ein paar Nickerchen, dann bist du ein echter Profi.",
       low: "Kesya ist nicht böse. Nur enttäuscht. Lies die Lektionen nochmal, nach ihrem Nickerchen.",
     },
+    alts: {
+      zoomies: "Kesya mit dem Kopf in einer blauen Plastiktüte",
+      napping: "Kesya mit geschlossenen Augen im warmen Sonnenlicht",
+      eating: "Kesya neben einem umgekippten Futterpuzzle, überall liegt Trockenfutter",
+      top: "Kesya liegt auf ihrem eigenen Thron, einer Pappliege mit den Buchstaben KESYA",
+      good: "Kesya posiert elegant auf einer glänzenden blauen Decke",
+      low: "Kesya sitzt mit rotem Halstuch im Gras und schaut sehr grimmig",
+    },
   },
 };
 
@@ -215,7 +233,7 @@ const cat: UI = {
   languageSwitch: "Meow mew?",
   footer: "Mrrrow by Kesya · Tap-tap-tap by hooman",
   defaultDescription: "Meow mrrp purrr. Zzzmew, nom-nom-meow, MRRR-ZOOM.",
-  lessonLabel: (n: number) => `Mrrp ${n} mew 3`,
+  lessonLabel: (n: number, total: number) => `Mrrp ${n} mew ${total}`,
   next: "Mrrrow",
   nextStep: "Mrrp!",
   home: {
@@ -280,12 +298,8 @@ const cat: UI = {
       good: "Mew mew hooman! Zzzmew zzzmew… mrrp mrrow.",
       low: "… … … Hsss. Mrrp mrrp mrrp. Zzzmew.",
     },
+    alts: en.quiz.alts,
   },
 };
 
 export const ui: Record<Lang, UI> = { en, de, cat };
-
-// Replaces {name} placeholders, e.g. fill("{score} of {total}", { score: 3, total: 4 })
-export function fill(text: string, values: Record<string, string | number>): string {
-  return text.replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? ""));
-}

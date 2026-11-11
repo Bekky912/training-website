@@ -1,10 +1,7 @@
 ---
 layout: ../../../layouts/LessonLayout.astro
-title: Operation Zweites Frühstück
 lesson: 2
 description: "Lektion 2: Wie Kesya ihre Menschen überzeugt, dass es das erste Frühstück nie gab."
-nextHref: /lessons/zoomies
-nextLabel: Die Zoomie-Party
 ---
 
 Das Frühstück war köstlich. Leider ist es weg. Du starrst in den leeren Napf und spürst eine

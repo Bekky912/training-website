@@ -1,10 +1,7 @@
 ---
 layout: ../../layouts/LessonLayout.astro
-title: The Zoomie Party
 lesson: 3
 description: "Lesson 3: how Kesya lures her human servants away from the screen and into the fun."
-nextHref: /quiz
-nextLabel: Take the quiz
 ---
 
 Evening. Suddenly you have the energy of three cats: it is time for the zoomies! You want to

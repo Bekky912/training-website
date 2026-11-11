@@ -1,10 +1,7 @@
 ---
 layout: ../../layouts/LessonLayout.astro
-title: The Art of the Nap
 lesson: 1
 description: "Lesson 1: how Kesya finds the perfect sun spot and the perfect sleeping position."
-nextHref: /lessons/second-breakfast
-nextLabel: Operation Second Breakfast
 ---
 
 It is a lazy Sunday afternoon and you are tired. Very tired. But the sofa is cold, the floor is

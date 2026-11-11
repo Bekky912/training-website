@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Paw from "../components/Paw.astro";
-import { url, localized, splitPath } from "../lib/url";
+import { url, localized, splitPath, lessonPaths } from "../lib/url";
 import { ui, languages, langs } from "../i18n/ui";
 
 interface Props {
@@ -16,9 +16,9 @@ const { title, description = t.defaultDescription } = Astro.props;
 
 const links = [
   { path: "/", label: t.nav.home },
-  { path: "/lessons/nap", label: t.nav.nap },
-  { path: "/lessons/second-breakfast", label: t.nav.breakfast },
-  { path: "/lessons/zoomies", label: t.nav.zoomies },
+  { path: lessonPaths[0], label: t.nav.nap },
+  { path: lessonPaths[1], label: t.nav.breakfast },
+  { path: lessonPaths[2], label: t.nav.zoomies },
   { path: "/quiz", label: t.nav.quiz },
 ];
 ---

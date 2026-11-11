@@ -1,10 +1,7 @@
 ---
 layout: ../../../layouts/LessonLayout.astro
-title: Die Zoomie-Party
 lesson: 3
 description: "Lektion 3: Wie Kesya ihr menschliches Personal vom Bildschirm weglockt und in den Spaß."
-nextHref: /quiz
-nextLabel: Zum Quiz
 ---
 
 Abend. Plötzlich hast du die Energie von drei Katzen: Zeit für die Zoomies! Du willst rennen,

@@ -4,14 +4,12 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Paw from "./Paw.astro";
-import { localized, splitPath } from "../lib/url";
+import { localized, splitPath, lessonPaths } from "../lib/url";
 import { ui } from "../i18n/ui";
 import posterImage from "../assets/kesya/poster.jpg";
 
 const { lang } = splitPath(Astro.url.pathname);
 const t = ui[lang].home;
-
-const lessonPaths = ["/lessons/nap", "/lessons/second-breakfast", "/lessons/zoomies"];
 ---
 
 <BaseLayout title={t.title}>
@@ -21,7 +19,7 @@ const lessonPaths = ["/lessons/nap", "/lessons/second-breakfast", "/lessons/zoom
         <h1>{t.heading}</h1>
         <p set:html={t.intro} />
         <p>{t.duration}</p>
-        <a class="button" href={localized("/lessons/nap", lang)}>{t.start}</a>
+        <a class="button" href={localized(lessonPaths[0], lang)}>{t.start}</a>
       </div>
       <Image class="hero__photo" src={posterImage} alt={t.posterAlt} width={500} />
     </div>

@@ -42,7 +42,8 @@ Node.js is a portable install in `C:\Users\RNagel\tools\nodejs` (user PATH, no a
 
 - `src/pages/` – one file per route; file name = URL. English at the root, German in `src/pages/de/`, Cat in `src/pages/cat/`. Lessons are Markdown per language; `index.astro` and `quiz.astro` are thin wrappers around `src/components/HomePage.astro` and `QuizPage.astro`.
 - `src/i18n/ui.ts` – all short UI texts (nav, home page, quiz) in `en`, `de` and `cat`. A text change usually has to be made in all three languages (Cat = only meows and emojis; photo alt texts stay English there).
-- `src/lib/url.ts` – `url()` adds the base path, `localized(path, lang)` adds the language prefix, `splitPath()` reads the language from the current address.
+- `src/lib/url.ts` – `url()` adds the base path, `localized(path, lang)` adds the language prefix, `splitPath()` reads the language from the current address. `lessonPaths` is the only place that defines the lesson order; lesson titles and "next" links come from `ui.ts`, so lesson frontmatter only has `layout`, `lesson` and `description`.
+- `src/lib/fill.ts` – `fill()` for `{placeholder}` texts (used by the quiz script).
 - `src/layouts/` – shared layout (header nav, language switch, footer, global CSS) used by every page.
 - `src/assets/kesya/` – Kesya photos (optimized by Astro at build time).
 - `public/` – files served as-is (favicons).

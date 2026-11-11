@@ -1,10 +1,7 @@
 ---
 layout: ../../../layouts/LessonLayout.astro
-title: Zzzmew Purrrr
 lesson: 1
 description: "Mrrp 1: zzzmew ☀️ mew mrrp. Purrrr."
-nextHref: /lessons/second-breakfast
-nextLabel: Nom-Nom-Meow Mrrow
 ---
 
 😴😴. 🛋️ ❄️, 🧱 😣, hooman 🪑 Kesya-spot. **Mew… zzzmew 📍❓**
